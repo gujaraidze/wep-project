@@ -4,6 +4,8 @@ body {
     background-color: #000000;
     color: #fff;
 }
+/* header */
+
 .header {
     background: transparent !important;
     top: 0;
@@ -152,6 +154,8 @@ body {
 }
 
 
+/* section1 */
+
 .main-games-info {
     padding-top: 257px;
     margin-left: 60px;
@@ -238,8 +242,27 @@ body {
 }
 
 
+/* section 2 */
 
+.game-ganres {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+}
+.game-ganres-title{
+    margin-bottom: 50px;
+}
+.game-ganres-list {
+    display: flex;
+    justify-content: space-around;
+    
+     
+}
 
+.game-ganre {
+    width: 180px;
+    object-fit: contain;
+}
 
 
 
