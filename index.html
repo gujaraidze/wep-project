@@ -3,11 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>OASIS - Game Store</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script src="js/script.js"></script>
 </head>
 <body>
-    <script src="js/script.js"></script>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img class="logo-img" src="img/Apple Arcade.svg" alt="OASIS logo">
+                <img class="oasis" src="img/OASIS.svg" alt="oasis name">
+            </div>
+            <nav class="platforms">
+                <a class="platform" href="#">
+                    <img class="platform-img" src="img/PlayStation.svg" alt="PSN">
+                    <span>PSN</span>
+                </a>
+                <a class="platform" href="#">
+                    <img class="platform-img" src="img/Xbox.svg" alt="Xbox">
+                    <span>Xbox</span>
+                </a>
+                <a class="platform" href="#">
+                    <img class="platform-img" src="img/Monitor.svg" alt="PC">
+                    <span>PC</span>
+                </a>
+            </nav>
+            <div class="header-actions">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search">
+                    <img src="img/Search.svg" alt="Search">
+                </div>
+                <button class="btn btn--primary install-btn">Install Oasis</button>
+                <a href="#" class="icon-btn"><img src="img/Shopping Cart.svg" alt="Cart"></a>
+                <a href="#" class="icon-btn"><img src="img/Male User.svg" alt="User"></a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="main-games-bg">
+            <div class="main-games-info">
+                <h1 class="main-games-title">Discover Your Next Adventure</h1>
+                <p class="main-games-price">$59.99</p>
+                <div class="main-games-buttons">
+                    <button class="buy-now">buy now</button>
+                    <button class="wishlist">wishlist</button>
+                </div>
+            </div>
+            <div class="main-games-images-container">
+                <div class="main-games-images">
+                    <div class="main-games-image"><img src="img/Rectangle 4.png" alt=""></div>
+                    <div class="main-games-image"><img src="img/Rectangle 5.png" alt=""></div>
+                    <div class="main-games-image"><img src="img/Rectangle 6.png" alt=""></div>
+                </div>
+                <div class="main-games-circles">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="game-ganres">
+            <h2 class="game-ganres-title">Game Genres</h2>
+            <div class="game-ganres-list">
+                <div class="game-ganre">
+                    <img src="img/Action.svg" alt="Action">
+                    <span>Action</span>
+                </div>
+                <div class="game-ganre">
+                    <img src="img/Adventure.svg" alt="Adventure">
+                    <span>Adventure</span>
+                </div>
+                <div class="game-ganre">
+                    <img src="img/RPG.svg" alt="RPG">
+                    <span>RPG</span>
+                </div>
+                <div class="game-ganre">
+                    <img src="img/Sports.svg" alt="Sports">
+                    <span>Sports</span>
+                </div>
+        </section>
+
+        <section class="popular-games">
+
+        </section>
+
+        <section class="bestseller-games">
+
+        </section>
+
+
+        
+    </main>
+    <footer>
+        <!-- Footer content here -->
+    </footer>
 </body>
 </html>
