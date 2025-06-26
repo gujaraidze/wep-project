@@ -49,7 +49,6 @@ body {
 .platform {
     display: flex;
     align-items: center;
-    gap: 6px;
     color: #fff;
     text-decoration: none;
     font-size: 1rem;
@@ -248,6 +247,7 @@ body {
     display: flex;
     flex-direction: column;
     margin-top: 100px;
+    margin-bottom: 100px;
 }
 .game-ganres-title{
     margin-bottom: 50px;
@@ -263,9 +263,69 @@ body {
     width: 180px;
     object-fit: contain;
 }
+/* section 3 */
+
+.popular-game-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.popular-game-row {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+}
+
+.popular-game {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 300px;
+    background-color: #767676;
+}
+
+.popular-game-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 20px;
+}
 
 
 
+
+/* section 4 */
+.bestseller-games-title{
+    margin-bottom: 50px;
+}
+
+.bestseller-games-wraper {
+    height: 270px;
+    border: 0;
+    display: flex;
+    justify-content: space-evenly;
+    overflow-x: scroll;
+}
+
+
+.bestseller-games-wrapper {
+    min-width: 400px;
+    height: 300px;
+    line-height: 110px;
+    text-align: center;
+    background-color: #ffffff;
+    margin-right: 2px;
+}
+
+.bestseller-game{
+    margin: 0 36px 0 36px;
+    width: 200px;
+    height: 200px;
+}
 @media (max-width: 900px) {
     .header-container {
         flex-direction: column;
