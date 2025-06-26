@@ -78,8 +78,10 @@ body {
     border: 1px solid #D9D9D9;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     border-radius: 21px;
     padding: 0 10px;
+    width: 200px;
     height: 37px;
     margin-right: 8px;
 }
@@ -90,7 +92,7 @@ body {
     color: #fff;
     font-size: 1rem;
     outline: none;
-    width: 90px;
+    width: 150px;
     padding: 15px;
 }
 
@@ -98,6 +100,10 @@ body {
     width: 24px;
     height: 24px;
     opacity: 0.7;
+}
+
+.search-bar img:hover {
+    opacity: 1;
 }
 
 .install-btn {
@@ -142,6 +148,25 @@ body {
     filter: brightness(1.2) saturate(2);
 }
 
+.see-more-btn {
+    background: hsl(261, 100%, 30%);
+    border: 0px;;
+    color: #ffffff;
+    width: 123px;
+    height: 44px;
+    border-radius: 15px;
+    padding: 6px 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-right: 8px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.see-more-btn:hover {
+    background: hsl(261, 100%, 20%);
+}
+
+/* section1 */
 .main-games-bg {
     
     top: 0;
@@ -152,8 +177,9 @@ body {
     z-index: 0;
 }
 
-
-/* section1 */
+.main-games-images-container {
+    margin: 0px 80px 0px 80px;
+}
 
 .main-games-info {
     padding-top: 257px;
@@ -243,15 +269,22 @@ body {
 
 /* section 2 */
 
+.game-ganres-list{
+    margin: 0px 50px 0px 50px;
+}
+
 .game-ganres {
     display: flex;
     flex-direction: column;
     margin-top: 100px;
     margin-bottom: 100px;
 }
+
 .game-ganres-title{
-    margin-bottom: 50px;
+    margin: 0px 0px 50px 70px;
+
 }
+
 .game-ganres-list {
     display: flex;
     justify-content: space-around;
@@ -263,20 +296,26 @@ body {
     width: 180px;
     object-fit: contain;
 }
+
+
 /* section 3 */
+
+.popular-games-header {
+    margin: 0px 50px 50px 50px;
+}
 
 .popular-game-list {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .popular-game-row {
     display: flex;
     justify-content: space-evenly;
-    margin-bottom: 50px;
+    margin-bottom: 79px;
 }
 
 .popular-game {
@@ -284,7 +323,6 @@ body {
     flex-direction: column;
     width: 500px;
     height: 300px;
-    background-color: #767676;
 }
 
 .popular-game-info {
@@ -297,14 +335,27 @@ body {
 
 
 
-
 /* section 4 */
-.bestseller-games-title{
-    margin-bottom: 50px;
+
+.bestseller-games {
+    margin: 0px 0px 100px 0px;
 }
 
+.bestseller-games-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 50px 50px 50px;
+}
+.popular-games-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin : 0px 50px 0px 50px;
+}   
 .bestseller-games-wraper {
     height: 270px;
+    margin: 0px 70px 0px 50px;
     border: 0;
     display: flex;
     justify-content: space-evenly;
@@ -326,6 +377,32 @@ body {
     width: 200px;
     height: 200px;
 }
+
+
+/* section 6 */
+
+.game-reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 50px 50px 50px;
+}
+
+.game-reviews-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 70px 0px 70px;
+}
+
+.game-review {
+    width: 264px;
+    height: 500px;
+    background-color: #505050;
+
+}
+
+/* scailing */
 @media (max-width: 900px) {
     .header-container {
         flex-direction: column;
