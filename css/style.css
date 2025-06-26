@@ -430,7 +430,6 @@ body {
     gap: 8px;
 }
 
-
 .footer-links-container{
     display: flex;
     align-items: center;
@@ -461,7 +460,7 @@ body {
 }
 .footer-socials {
     width: 20px;
-    height: 20px;
+    height: 20px;  
 }
 
 
