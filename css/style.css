@@ -368,7 +368,7 @@ body {
     border-radius: 12px; /* სურათსაც მომრგვალებული კუთხეები */
 }
 
-/* section 2 */
+/*----------------------- section 2 ------------------------- */
 
 .game-ganres-list{
     margin: 0px 50px 0px 50px;
@@ -377,8 +377,7 @@ body {
 .game-ganres {
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 150px;
 }
 
 .game-ganres-title{
@@ -423,9 +422,6 @@ body {
     transform: translateY(-50%);
     text-align: center;
     color: #fff;
-    font-size: 1.35rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
     text-shadow: 0 2px 8px rgba(0,0,0,0.5);
     z-index: 2;
     pointer-events: none;
@@ -439,7 +435,12 @@ body {
 }
 
 
-/* section 3 */
+/*------------------------ section 3 -------------------------- */
+
+.popular-games {
+    margin-top: 150px;
+}
+
 
 .popular-games-header {
     margin: 0px 50px 50px 50px;
@@ -476,10 +477,10 @@ body {
 
 
 
-/* section 4 */
+/*------------------------- section 4 -------------------------*/
 
 .bestseller-games {
-    margin: 0px 0px 100px 0px;
+    margin: 0px 0px 150px 0px;
 }
 
 .bestseller-games-header{
@@ -519,7 +520,13 @@ body {
     height: 200px;
 }
 
-/* section 5 */
+/*------------------------ section 5 -------------------------*/
+
+
+.game-deals {
+    margin: 150px 0px 150px 0px;
+}
+
 
 .game-deals-header {
     display: flex;
@@ -575,11 +582,11 @@ body {
     
 }
 
-/* section 6 */
+/*-------------------------- section 6 ----------------------------*/
 
 
 .pre-orders {
-    margin: 0px 0px 100px 0px;
+    margin: 0px 0px 170px 0px;
 }
 .pre-orders-header {
     display: flex;
@@ -625,7 +632,9 @@ body {
     height: 540px;
 }
 
-/* section 7 */
+/*------------------------- section 7 ----------------------------*/
+
+
 
 .game-reviews-header {
     display: flex;
@@ -649,14 +658,15 @@ body {
 }
 
 
-/* footer */
+/*---------------------------- footer -----------------------------*/
 
 .footer {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    height: 200px;
+    height: 400px;
+    padding-top: 200px;
     background-color: #000000;
     color: #ffffff;
 }
@@ -770,4 +780,29 @@ body {
     transition: filter 0.05s;
 }
 
+/* font designs */
 
+h2 {
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.spsular-game-name, .popular-game-price {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.game-deal-name, .game-deal-final-price{
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.game-review-name {
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.game-review-text {
+    font-size: 17px;
+    font-weight: 500;
+}
