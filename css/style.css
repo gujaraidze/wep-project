@@ -7,12 +7,13 @@ body {
 /* header */
 
 .header {
-    background: transparent !important;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
-    padding-top: 31px;
+    z-index: 100;
+    padding: 10px 30px;
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .header-container {
@@ -126,6 +127,12 @@ body {
     border-color: #0090ff;
 }
 
+.install-btn:active {
+    background: #0070cc;
+    color: #fff;
+    border-color: #0070cc;
+}
+
 .icon-btn {
     display: flex;
     align-items: center;
@@ -166,9 +173,21 @@ body {
     background: hsl(261, 100%, 20%);
 }
 
+.button-active{
+    
+}
+
+.button-active:active {
+    transform: scale(0.95);
+    color: #ffffff;
+    border: none;
+    
+
+}
+
+
 /* section1 */
 .main-games-bg {
-    
     top: 0;
     left: 0;
     width: 100vw;
@@ -238,6 +257,17 @@ body {
     transition: background 0.2s, color 0.2s;
 }
 
+.wishlist:hover {
+    background: #0090ff;
+    color: #fff;
+    border-color: #0090ff;
+}
+
+.wishlist:active {
+    background: #0070cc;
+    color: #fff;
+    border-color: #0070cc;
+}
 
 .main-games-images {
     display: flex;
@@ -261,9 +291,16 @@ body {
     background-color: #ffffff;
 }
 
+.circle.active {
+    background: rgb(0, 149, 255) !important;
+    opacity: 1 !important;
+    transform: scale(1.8) !important;
+}
+
 .circle:hover {
-    width: 15px;
-    height: 15px;
+    background: rgb(0, 149, 255) !important;
+    opacity: 1 !important;
+    transform: scale(1.8) !important;
 }
 
 
@@ -378,8 +415,113 @@ body {
     height: 200px;
 }
 
+/* section 5 */
+
+.game-deals-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 50px 50px 50px;
+}
+
+.game-deals-conteiner {
+    display: flex;
+    flex-direction: column;
+    ;
+}
+
+.game-deals-row {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0px 50px 70px 50px;
+}
+
+.game-deal {
+    width: 200px;
+    height: 360px;
+    background-color: #505050;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-deal-info{
+    display: flex;
+    flex-direction: column;
+    height: 70px;
+    justify-content: space-between;
+    margin: 5px 5px 5px 5px;
+}
+
+.game-deal-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.game-deal-discount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 30px;
+    width: 45px;
+    height: 25px;
+    background-color: #ff0000;
+    color: #ffffff;
+    border-radius: 20px;
+    
+}
 
 /* section 6 */
+
+
+.pre-orders {
+    margin: 0px 0px 100px 0px;
+}
+.pre-orders-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 50px 50px 50px;
+}
+
+.pre-orders-wraper {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 1096px;
+    margin: 0px 0px 0px 20vw;
+}
+
+.pre-orders-conteiner-left {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pre-orders-conteiner-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pre-orders-game-left, .pre-orders-game-right{
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    height: 260px;    
+    
+}
+
+.pre-orders-conteiner-right {
+    height: 540px;
+}
+
+/* section 7 */
 
 .game-reviews-header {
     display: flex;
@@ -399,7 +541,7 @@ body {
     width: 264px;
     height: 500px;
     background-color: #505050;
-
+    object-fit:cover;
 }
 
 
