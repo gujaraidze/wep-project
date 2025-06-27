@@ -46,59 +46,63 @@
         </div>
     </header>
     <main>
-        <section class="main-games-bg">
+        <section class="main-games-bg" id="main-games-bg">
             <div class="main-games-info">
-                <h1 class="main-games-title">Discover Your Next Adventure</h1>
-                <p class="main-games-price">$59.99</p>
+                <h1 class="main-games-title" id="main-game-title">Discover Your Next Adventure</h1>
+                <p class="main-games-price" id="main-game-price">$59.99</p>
                 <div class="main-games-buttons">
                     <button class="buy-now">buy now</button>
                     <button class="wishlist">wishlist</button>
                 </div>
             </div>
             <div class="main-games-images-container">
-                <div class="main-games-images">
-                    <div class="main-games-image, button-active"><img src="img/Rectangle 4.png" alt=""></div>
-                    <div class="main-games-image"><img src="img/Rectangle 5.png" alt=""></div>
-                    <div class="main-games-image"><img src="img/Rectangle 6.png" alt=""></div>
+                <div class="main-games-carousel-row">
+                    <button class="main-games-arrow left" id="main-games-arrow-left">&#8592;</button>
+                    <div class="main-games-images" id="main-games-previews">
+                        <div class="main-games-image" data-index="0"><img src="img/dune preview.jpg" alt=""></div>
+                        <div class="main-games-image" data-index="1"><img src="img/doom preview.jpg" alt=""></div>
+                        <div class="main-games-image" data-index="2"><img src="img/f1 25 preview.jpg" alt=""></div>
+                    </div>
+                    <button class="main-games-arrow right" id="main-games-arrow-right">&#8594;</button>
                 </div>
-                <div class="main-games-circles">
-                    <div class="circle"></div>
-                    <div class="circle"></div>
-                    <div class="circle"></div>
+                <div class="main-games-circles" id="main-games-dots">
+                    <div class="circle" data-index="0"></div>
+                    <div class="circle" data-index="1"></div>
+                    <div class="circle" data-index="2"></div>
                 </div>
             </div>
         </section>
 
         <section class="game-ganres">
-            <h2 class="game-ganres-title">Game Genres</h2>
+            <h2 class="game-ganres-title">Game Ganres</h2>
             <div class="game-ganres-list">
                 <div class="game-ganre">
                     <img src="img/Rectangle 41.png" alt="Action">
-                    <span>Action advanture</span>
+                    <span class="ganre-title">Action advanture</span>
                 </div>
                 <div class="game-ganre">
                     <img src="img/Rectangle 41.png" alt="Adventure">
-                    <span>indie</span>
+                    <span class="ganre-title">indie</span>
                 </div>
                 <div class="game-ganre">
                     <img src="img/Rectangle 41.png" alt="RPG">
-                    <span>RPG</span>
+                    <span class="ganre-title">RPG</span>
                 </div>
                 <div class="game-ganre">
                     <img src="img/Rectangle 41.png" alt="Sports">
-                    <span>Sports</span>
+                    <span class="ganre-title">Sports</span>
                 </div>
                 <div class="game-ganre">
                     <img src="img/Rectangle 41.png" alt="Sports">
-                    <span>strategy</span>
+                    <span class="ganre-title">strategy</span>
                 </div>
                 <div class="game-ganre">
                     <img src="img/Rectangle 41.png" alt="Sports">
-                    <span>simulator</span>
+                    <span class="ganre-title">simulator</span>
                 </div>
                 <div class="game-ganre">
                     <img src="img/Rectangle 41.png" alt="Sports">
-                    <span>f2p</span>
+                    <span class="ganre-title">f2p</span>
                 </div>
             </div>
         </section>

@@ -173,31 +173,63 @@ body {
     background: hsl(261, 100%, 20%);
 }
 
-.button-active{
-    
-}
 
-.button-active:active {
-    transform: scale(0.95);
-    color: #ffffff;
-    border: none;
-    
-
-}
-
-
-/* section1 */
+/* -------------------------------section 1---------------------------------- */
 .main-games-bg {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 829px;
-    background: url('/img/outlast.png') center center / cover no-repeat;
+    height: 870px;
     z-index: 0;
 }
 
 .main-games-images-container {
-    margin: 0px 80px 0px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.main-games-carousel-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 18px;
+    min-height: 120px;
+}
+
+.main-games-arrow {
+    background: #181818;
+    border: none;
+    color: #fff;
+    font-size: 2.2rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    cursor: pointer;
+    margin: 0 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+    z-index: 3;
+    align-self: center;
+    margin-top: 130px;
+}
+.main-games-arrow:hover {
+    background: #0090ff;
+    color: #fff;
+    transform: scale(1.12);
+}
+
+#main-games-previews {
+    display: flex;
+    align-items: center;
+    gap: 32px;
 }
 
 .main-games-info {
@@ -275,13 +307,16 @@ body {
     margin-top: 138px;
     margin-left: 80px;
     margin-right: 80px;
+    object-fit: contain;
 
 }
 .main-games-circles {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 50px;
-    margin-top: 20px;
+    margin-top: 10px;
+    width: 100%;
 }
 
 .circle {
@@ -303,6 +338,35 @@ body {
     transform: scale(1.8) !important;
 }
 
+.main-games-image.active {
+    outline: 3px solid #0090ff;
+    filter: brightness(1.1);
+    border-radius: 12px;
+    z-index: 2;
+}
+
+.main-games-circles .circle.active {
+    background: #0090ff !important;
+    transform: scale(1.5);
+    opacity: 1 !important;
+}
+
+.main-games-image {
+    width: 390px;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px; /* მომრგვალებული კუთხეები */
+}
+
+.main-games-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px; /* სურათსაც მომრგვალებული კუთხეები */
+}
 
 /* section 2 */
 
@@ -324,14 +388,54 @@ body {
 
 .game-ganres-list {
     display: flex;
-    justify-content: space-around;
-    
-     
+    justify-content: center;
+    align-items: center;
+    gap: 36px;
+    margin: 0 auto;
 }
 
 .game-ganre {
-    width: 180px;
-    object-fit: contain;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #222;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: filter 0.2s, box-shadow 0.2s;
+}
+
+.game-ganre img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.55);
+    transition: filter 0.2s;
+}
+
+.ganre-title {
+    position: absolute;
+    left: 0; right: 0; top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.game-ganre:hover img {
+    filter: brightness(0.75);
+}
+.game-ganre:hover {
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
 }
 
 
@@ -607,41 +711,63 @@ body {
 
 
 /* scailing */
-@media (max-width: 900px) {
-    .header-container {
-        flex-direction: column;
-        height: auto;
-        padding: 8px 8px;
-        gap: 8px;
-    }
-    .platforms {
-        margin: 8px 0;
-    }
-    
+
+
+
+
+
+
+
+
+
+
+
+/* თამაშის სურათებზე ჰოვერი და აქტივი */
+.main-games-image img,
+.game-ganre img,
+.popular-game img,
+.bestseller-game img,
+.game-deal img,
+.game-review img {
+    transition: filter 0.25s;
+    cursor: pointer;
 }
 
-@media (max-width: 600px) {
-    .header-container {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 8px;
-        height: auto;
-    }
-    .platforms {
-        gap: 12px;
-        margin: 8px 0;
-    }
-    .search-bar input {
-        width: 60px;
-    }
-    .install-btn {
-        padding: 4px 10px;
-        font-size: 0.95rem;
-    }
-    .icon-btn img {
-        width: 22px;
-        height: 22px;
-    }
+.main-games-image img:hover,
+.game-ganre img:hover,
+.popular-game img:hover,
+.bestseller-game img:hover,
+.game-deal img:hover,
+.game-review img:hover {
+    filter: brightness(1.20);
+}
+
+.main-games-image img:active,
+.game-ganre img:active,
+.popular-game img:active,
+.bestseller-game img:active,
+.game-deal img:active,
+.game-review img:active {
+    filter: brightness(0.6);
+    transition: filter 0.05s;
+}
+
+/* pre-orders სექციის background-იანი ბლოკები */
+.pre-orders-game-left,
+.pre-orders-game-right {
+    transition: filter 0.25s;
+    cursor: pointer;
+}
+
+.pre-orders-game-left:hover,
+.pre-orders-game-right:hover {
+    filter: brightness(1.18);
+}
+
+.pre-orders-game-left:active,
+.pre-orders-game-right:active {
+    filter: brightness(0.6);
+    transition: filter 0.05s;
 }
 
 
