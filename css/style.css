@@ -1,9 +1,11 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #000000;
+    /* background: linear-gradient(#000000, #00032f); */
+    background-color: #02001e;
     color: #fff;
 }
+
 /* header */
 
 .header {
@@ -170,15 +172,20 @@ body {
 }
 
 .see-more-btn:hover {
-    background: hsl(261, 100%, 20%);
+    background: hsl(261, 100%, 50%);
 }
 
+.see-more-btn:active {
+    background: hsl(261, 100%, 21%);
+    color: #fff;
+    border-color: hsl(261, 100%, 2%);
+}
 
 /* -------------------------------section 1---------------------------------- */
 .main-games-bg {
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 910px;
     z-index: 0;
 }
@@ -238,17 +245,21 @@ body {
 }
 
 .main-games-title {
+    max-width: 600px;
+    height: auto;
     font-size: 50px;
     font-weight: 700;
     color: #ffffff;
     margin-bottom: 16px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
 .main-games-price {
     font-size: 24px;
     font-weight: 500;
     color: #ffffff;
-    margin-bottom: 34px; 
+    margin-bottom: 34px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4); 
 }
 
 .main-games-buttons {
@@ -425,6 +436,8 @@ body {
     text-shadow: 0 2px 8px rgba(0,0,0,0.5);
     z-index: 2;
     pointer-events: none;
+    font-size: 23px;
+    font-weight: 700;
 }
 
 .game-ganre:hover img {
@@ -496,29 +509,117 @@ body {
     margin : 0px 50px 0px 50px;
 }   
 .bestseller-games-wraper {
+    position: relative;
     height: 270px;
     margin: 0px 70px 0px 50px;
     border: 0;
     display: flex;
-    justify-content: space-evenly;
-    overflow-x: scroll;
+    align-items: center;
+    overflow: hidden;
 }
 
+.bestseller-games-container {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.3s ease;
+    padding: 0 60px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
 
-.bestseller-games-wrapper {
-    min-width: 400px;
-    height: 300px;
-    line-height: 110px;
-    text-align: center;
-    background-color: #ffffff;
-    margin-right: 2px;
+.bestseller-games-arrow {
+    background: #181818;
+    border: none;
+    color: #fff;
+    font-size: 2.2rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+    z-index: 100;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: auto;
+    user-select: none;
+}
+
+.bestseller-games-arrow.left {
+    left: 10px;
+}
+
+.bestseller-games-arrow.right {
+    right: 10px;
+}
+
+.bestseller-games-arrow:hover {
+    background: #0090ff;
+    color: #fff;
+    transform: translateY(-50%) scale(1.12);
+}
+
+.bestseller-games-arrow:active {
+    background: #0070cc;
+    transform: translateY(-50%) scale(1.08);
 }
 
 .bestseller-game{
-    margin: 0 36px 0 36px;
-    width: 200px;
-    height: 200px;
+    min-width: 180px;
+    height: 250px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    z-index: 1;
+    pointer-events: auto;
+    cursor: pointer;
+    transition: filter 0.05s;
+    display: flex;
+    flex-direction: column;
 }
+
+.bestseller-game:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    filter: brightness(1.20)
+    
+}
+
+.bestseller-game img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.bestseller-game-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,2));
+    color: #ffffff;
+    padding: 20px 10px 10px 10px;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0,0,0,0);
+}
+
+.bestseller-game:active{
+    filter: brightness(0.6);
+    transition: filter 0.05s
+}
+
+
 
 /*------------------------ section 5 -------------------------*/
 
@@ -550,9 +651,15 @@ body {
 .game-deal {
     width: 200px;
     height: 360px;
-    background-color: #505050;
+    border-radius: 15px;
+    background-color: #0b003cfe;
+    color: #ffffff;
     display: flex;
     flex-direction: column;
+}
+
+.game-deal img {
+    border-radius: 15px;
 }
 
 .game-deal-info{
@@ -561,12 +668,22 @@ body {
     height: 70px;
     justify-content: space-between;
     margin: 5px 5px 5px 5px;
+    padding-right: 10px;
 }
+
+.game-deal-name {
+    padding-left: 5px;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
 
 .game-deal-price {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-left: 5px;
+    margin-bottom: 5px;
 }
 
 .game-deal-discount {
@@ -576,9 +693,11 @@ body {
     margin-right: 30px;
     width: 45px;
     height: 25px;
-    background-color: #ff0000;
+    background-color: #a91010;
     color: #ffffff;
     border-radius: 20px;
+    font-weight: 600;
+    font-size: 17px;
     
 }
 
@@ -598,43 +717,88 @@ body {
 .pre-orders-wraper {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     max-width: 1096px;
-    margin: 0px 0px 0px 20vw;
+    margin: 0px 20vw 0px 20vw;
+    align-items: stretch;
 }
 
-.pre-orders-conteiner-left {
-    flex: 2;
+.pre-orders-conteiner-left, .pre-orders-conteiner-right {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    flex: 1 1 0;
+    height: 700px;
 }
 
-.pre-orders-conteiner-right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.pre-orders-game-left, .pre-orders-game-right {
+    height: 100%;
+    min-height: unset;
 }
 
-.pre-orders-game-left, .pre-orders-game-right{
+.pre-orders-game-left, .pre-orders-game-right {
+    position: relative;
     background-size: cover;
     background-position: center;
-    border-radius: 12px;
+    border-radius: 18px;
     overflow: hidden;
-    position: relative;
     display: flex;
-    height: 260px;    
-    
+    align-items: flex-end;
+    min-height: 220px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+    transition: transform 0.18s, box-shadow 0.18s;
 }
 
-.pre-orders-conteiner-right {
-    height: 540px;
+.pre-orders-game-left:hover, .pre-orders-game-right:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+}
+
+.pre-orders-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.75) 100%);
+    z-index: 1;
+}
+
+.pre-orders-game-info {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    padding: 24px 24px 18px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.pre-orders-game-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.pre-orders-btn {
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.18s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+.pre-orders-btn:hover {
+    background: #0090ff;
 }
 
 /*------------------------- section 7 ----------------------------*/
 
-
+.game-reviews {
+    margin-bottom: 170px;
+}
 
 .game-reviews-header {
     display: flex;
@@ -652,11 +816,42 @@ body {
 
 .game-review {
     width: 264px;
-    height: 500px;
-    background-color: #505050;
+    height: 560px;
+    background-color: #07003b;
+    border-radius: 30px;
     object-fit:cover;
 }
 
+.game-review-info {
+    display: flex;
+    flex-direction: column;
+    margin: 40px 10px 10px 10px;
+}
+
+.game-review-text {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.review-game-name-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.game-review-rating {
+    display: flex;
+    align-items: center;
+}
+
+.game-review-rating-star { 
+    scale: 1.5;
+    margin-right: 7px;
+}
+
+.game-review-rating-score {
+    font-size: 25px;
+}
 
 /*---------------------------- footer -----------------------------*/
 
@@ -806,3 +1001,12 @@ h2 {
     font-size: 17px;
     font-weight: 500;
 }
+
+img {
+    user-select: none;
+    -webkit-user-select: none;  /* Safari */
+    -moz-user-select: none;     /* Firefox */
+    -ms-user-select: none;      /* IE/Edge */
+    -webkit-user-drag: none;    /* Safari: prevent dragging */
+    pointer-events: auto;       /* keep them clickable if needed */
+  }

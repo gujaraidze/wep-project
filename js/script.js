@@ -99,6 +99,79 @@ document.addEventListener('DOMContentLoaded', function() {
     startInterval();
 });
 
-// CSS-ში დაამატეთ:
-// .main-games-image.active { outline: 3px solid #0090ff; filter: brightness(1.1); }
-// .main-games-circles .circle.active { background: #0090ff !important; transform: scale(1.5); }
+
+
+
+// BESTSELLER GAMES CAROUSEL
+document.addEventListener('DOMContentLoaded', function() {
+    const container = document.getElementById('bestseller-games-container');
+    const leftArrow = document.getElementById('bestseller-arrow-left');
+    const rightArrow = document.getElementById('bestseller-arrow-right');
+    
+    if (!container || !leftArrow || !rightArrow) return;
+    
+    let scrollPosition = 0;
+    const scrollAmount = 200; // ერთი თამაშის სიგანე (180px) + gap (20px)
+    
+    function updateArrowVisibility() {
+        // მარცხენა ისრის ჩვენება/დამალვა
+        if (scrollPosition <= 0) {
+            leftArrow.style.opacity = '0.5';
+            leftArrow.style.pointerEvents = 'none';
+        } else {
+            leftArrow.style.opacity = '1';
+            leftArrow.style.pointerEvents = 'auto';
+        }
+        
+        // მარჯვენა ისრის ჩვენება/დამალვა
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        if (scrollPosition >= maxScroll) {
+            rightArrow.style.opacity = '0.5';
+            rightArrow.style.pointerEvents = 'none';
+        } else {
+            rightArrow.style.opacity = '1';
+            rightArrow.style.pointerEvents = 'auto';
+        }
+    }
+    
+    function scrollLeft() {
+        scrollPosition = Math.max(0, scrollPosition - scrollAmount);
+        container.style.transform = `translateX(-${scrollPosition}px)`;
+        updateArrowVisibility();
+    }
+    
+    function scrollRight() {
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        scrollPosition = Math.min(maxScroll, scrollPosition + scrollAmount);
+        container.style.transform = `translateX(-${scrollPosition}px)`;
+        updateArrowVisibility();
+    }
+    
+    // ისრების event listeners
+    leftArrow.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        scrollLeft();
+    });
+    
+    rightArrow.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        scrollRight();
+    });
+    
+    // კლავიატურის ღილაკები
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') {
+            scrollLeft();
+        } else if (e.key === 'ArrowRight') {
+            scrollRight();
+        }
+    });
+    
+    // ინიციალიზაცია
+    updateArrowVisibility();
+});
+
+
+
