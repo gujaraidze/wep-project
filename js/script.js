@@ -174,10 +174,52 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+fetch(`https://api.rawg.io/api/games?dates=2025-05-26,2025-06-26&ordering=-added&key=3201a36bbb524226a678e7d1578f3076&page=1&page_size=6`)
+        .then(function(response) {
+            if (response.status !== 200) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        });
 
-// game genres information
 
 
-const response = fetch('https://api.rawg.io/api/games?key=3201a36bbb524226a678e7d1578f3076', 
-{method: "GET"},);
-console.log(response); 
+// New Releases information
+document.addEventListener('DOMContentLoaded', function() {
+    const page = 1;
+    
+    fetch(`https://api.rawg.io/api/games?dates=2025-05-26,2025-06-26&ordering=-added&key=3201a36bbb524226a678e7d1578f3076&page=${page}&page_size=6`)
+        .then(function(response) {
+            if (response.status !== 200) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(function(data) {
+            console.log('New Releases API Response:', data);
+
+            data.results.slice(0, 6).forEach((game, index) => {
+                const gameNumber = index + 1;
+                const imgElement = document.querySelector(`#New-Releases-game-${gameNumber} img`);
+              
+                if (imgElement) {
+                    imgElement.src = game.background_image || 'img/Rectangle 5.png';
+                    imgElement.alt = game.name;
+                    
+                    // fallback თუ სურათი არ ჩაიტვირთება
+                    imgElement.onerror = function() {
+                        this.src = 'img/Rectangle 5.png';
+                    };
+                }
+                
+                // განვაახლოთ სახელი
+                const nameElement = document.querySelector(`#New-Releases-game-${gameNumber} .New-Releases-game-name`);
+                if (nameElement) {
+                    nameElement.textContent = game.name;
+                }
+            });
+        })
+        .catch(function(error) {
+            console.error('Error fetching new releases:', error);
+        });
+});
