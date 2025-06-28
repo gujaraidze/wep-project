@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!container || !leftArrow || !rightArrow) return;
     
     let scrollPosition = 0;
-    const scrollAmount = 200; // ერთი თამაშის სიგანე (180px) + gap (20px)
+    const scrollAmount = 1400; // 1400 200 ერთი თამაშის სიგანე (270px) + gap (30px)
     
     function updateArrowVisibility() {
         // მარცხენა ისრის ჩვენება/დამალვა
@@ -175,3 +175,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+// game genres information
+
+
+const response = fetch('https://api.rawg.io/api/games?key=3201a36bbb524226a678e7d1578f3076', 
+{method: "GET"},);
+console.log(response); 
