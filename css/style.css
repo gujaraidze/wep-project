@@ -87,6 +87,7 @@ body {
     width: 200px;
     height: 37px;
     margin-right: 8px;
+    margin-left: 8px;
 }
 
 .search-bar input {
@@ -180,6 +181,7 @@ body {
     color: #fff;
     border-color: hsl(261, 100%, 2%);
 }
+
 
 /* -------------------------------section 1---------------------------------- */
 .main-games-bg {
@@ -388,7 +390,7 @@ body {
 .game-ganres {
     display: flex;
     flex-direction: column;
-    margin-top: 150px;
+    margin-top: 100px;
 }
 
 .game-ganres-title{
@@ -787,11 +789,15 @@ body {
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.18s;
+    transition: background 0.14s;
     box-shadow: 0 2px 8px rgba(0,0,0,0.18);
 }
 .pre-orders-btn:hover {
     background: #0090ff;
+}
+
+.pre-orders-btn:active {
+    background: #00285c;
 }
 
 /*------------------------- section 7 ----------------------------*/
@@ -915,18 +921,6 @@ body {
 }
 
 
-/* scailing */
-
-
-
-
-
-
-
-
-
-
-
 /* თამაშის სურათებზე ჰოვერი და აქტივი */
 .main-games-image img,
 .game-ganre img,
@@ -969,11 +963,11 @@ body {
     filter: brightness(1.18);
 }
 
-.pre-orders-game-left:active,
+/* .pre-orders-game-left:active,
 .pre-orders-game-right:active {
     filter: brightness(0.6);
     transition: filter 0.05s;
-}
+} */
 
 /* font designs */
 
@@ -1010,3 +1004,10 @@ img {
     -webkit-user-drag: none;    /* Safari: prevent dragging */
     pointer-events: auto;       /* keep them clickable if needed */
   }
+
+
+
+
+
+
+
