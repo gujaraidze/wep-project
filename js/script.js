@@ -201,22 +201,43 @@ document.addEventListener('DOMContentLoaded', function() {
             data.results.slice(0, 6).forEach((game, index) => {
                 const gameNumber = index + 1;
                 const imgElement = document.querySelector(`#New-Releases-game-${gameNumber} img`);
-              
-                if (imgElement) {
-                    imgElement.src = game.background_image || 'img/Rectangle 5.png';
-                    imgElement.alt = game.name;
-                    
-                    // fallback თუ სურათი არ ჩაიტვირთება
-                    imgElement.onerror = function() {
-                        this.src = 'img/Rectangle 5.png';
-                    };
-                }
+                const gameID = 0; // Placeholder for game ID, if needed
+                const gameName = game.name || 'Unknown Game';
                 
                 // განვაახლოთ სახელი
                 const nameElement = document.querySelector(`#New-Releases-game-${gameNumber} .New-Releases-game-name`);
                 if (nameElement) {
-                    nameElement.textContent = game.name;
+                    nameElement.textContent = gameName;
                 }
+
+                // განვაახლოთ სურათი
+                async function getSteamImage(gameName, imgElement) {
+                    try {
+                        // Steam Store Search API
+                        const searchUrl = `https://store.steampowered.com/api/storesearch/?term=${encodeURIComponent(gameName)}&l=english&cc=US`;
+                        
+                        const response = await fetch(searchUrl);
+                        const data = await response.json();
+                        console.log(data);
+                        
+                        if (data.items && data.items.length > 0) {
+                            const steamId = data.items[0].id;
+                            const headerUrl = `https://cdn.akamai.steamstatic.com/steam/apps/${steamId}/header_image.jpg`;
+                            
+                            // ვამოწმებთ სურათის არსებობას
+                            const imgResponse = await fetch(headerUrl, { method: 'HEAD' });
+                            if (imgResponse.ok) {
+                                imgElement.src = headerUrl;
+                                return;
+                            }
+                        }
+                        
+                    } catch (error) {
+                        console.error('Error fetching Steam image:', error);
+                        imgElement.src = 'img/placeholder.jpg';
+                    }
+                }
+                getSteamImage(gameName, imgElement);
             });
         })
         .catch(function(error) {
