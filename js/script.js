@@ -360,27 +360,52 @@ fetch(`https://api.rawg.io/api/games?key=3201a36bbb524226a678e7d1578f3076&dates=
 
 
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     const page = 1;
-//     Promise.all([
-//         fetch(`https://www.cheapshark.com/api/1.0/deals/top?number=12`),
-//         fetch(`https://api.rawg.io/api/games?dkey=3201a36bbb524226a678e7d1578f3076&page=${page}&page_size=12`)
-//     ])
-//     .then(responses => Promise.all(responses.map(res => res.json())))
-//     .then(([rawgData, cheapsharkData]) => {
-//         console.log(ra);
-        
-//     })
-// });
 
-document.addEventListener('DOMContentLoaded', function() {
-        const page = 1;
-        fetch(`https://www.cheapshark.com/api/1.0/deals/top?number=12`)
-        .then(function(response) {
-            if (response.status !== 200) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
-        g
-});
+
+document.addEventListener('DOMContentLoaded', function () {
+    fetch('https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15&pageSize=12')
+      .then(function (response) {
+        if (response.status !== 200) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json(); 
+      })
+      .then(function (data){
+        console.log(data);
+        return data;
+        
+      })
+        .then(function (data) {
+        data.slice(0, 12).forEach((game, index) => {
+            const gameNumber = index + 1;
+            const dealBlock = document.querySelector(`#game-deal-${gameNumber}`);
+            const imgElement = dealBlock.querySelector(`img`);
+            const nameElement = document.querySelector(`#game-deal-${gameNumber} .game-deal-name`);
+            const gamePrice = document.querySelector(`#game-deal-${gameNumber} .game-deal-final-price`)
+            const gameDiascount = document.querySelector(`#game-deal-${gameNumber} .game-deal-discount`)
+            const previousPrice = document.querySelector(`#game-deal-${gameNumber} .game-deal-previous-price`)
+            if (nameElement) {
+                nameElement.textContent = game.title;
+                gamePrice.textContent = game.salePrice + '$';
+                previousPrice.textContent = game.normalPrice;
+                gameDiascount.textContent ='-' + Math.floor(game.savings) + '%';
+                
+                fetch(`https://api.rawg.io/api/games?&key=3201a36bbb524226a678e7d1578f3076&search=${encodeURIComponent(game.title)}&page_size=1`)
+                .then (response => response.json())
+                // .then (function (data) {
+                //     console.log(data);
+                //     return data;
+                // })
+                .then (function (data) {
+                    imgElement.src = data.results[0].background_image;
+                });
+            };      
+        }) 
+    })
+      .catch(function (error) {
+        console.error('Error fetching CheapShark deals:', error);
+      });
+  });
+
+
+
