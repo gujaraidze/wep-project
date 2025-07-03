@@ -357,3 +357,5 @@ fetch(`https://api.rawg.io/api/games?key=3201a36bbb524226a678e7d1578f3076&dates=
     console.error('Error fetching new releases:', error);
 });
 });
+
+
