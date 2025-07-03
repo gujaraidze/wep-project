@@ -187,10 +187,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             return response.json();
         })
-    .then(function(data) {
-        console.log(data);
-        return data;
-    })
+    // .then(function(data) {
+    //     console.log(data);
+    //     return data;
+    // })
     .then(function(info) {
         info.results.slice(0, 6).forEach((game, index) => {
             const gameNumber = index + 1;
@@ -266,10 +266,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             return response.json();
         })
-    .then(function(data) {
-        console.log(data);
-        return data;
-    })
+    // .then(function(data) {
+    //     console.log(data);
+    //     return data;
+    // })
     .then(function(info) {
         info.results.slice(0, 6).forEach((game, index) => {
             const gameNumber = index + 1;
@@ -298,10 +298,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             return response.json();
         })
-    .then(function(data) {
-        console.log(data);
-        return data;
-    })
+    // .then(function(data) {
+    //     console.log(data);
+    //     return data;
+    // })
     .then(function(info) {
         info.results.slice(0, 14).forEach((game, index) => {
             const gameNumber = index + 1;
@@ -338,10 +338,10 @@ fetch(`https://api.rawg.io/api/games?key=3201a36bbb524226a678e7d1578f3076&dates=
         }
         return response.json();
     })
-.then(function(data) {
-    console.log(data);
-    return data;
-})
+// .then(function(data) {
+//     console.log(data);
+//     return data;
+// })
 .then(function(info) {
     info.results.slice(0, 5).forEach((game, index) => {
         const gameNumber = index + 1;
@@ -359,3 +359,16 @@ fetch(`https://api.rawg.io/api/games?key=3201a36bbb524226a678e7d1578f3076&dates=
 });
 
 
+
+document.addEventListener('DOMContentLoaded', function() {
+    const page = 1;
+    Promise.all([
+        fetch(`https://www.cheapshark.com/api/1.0/deals/top?number=12`),
+        fetch(`https://api.rawg.io/api/games?dkey=3201a36bbb524226a678e7d1578f3076&page=${page}&page_size=12`)
+    ])
+    .then(responses => Promise.all(responses.map(res => res.json())))
+    .then(([rawgData, cheapsharkData]) => {
+        console.log(ra);
+        
+    })
+});
