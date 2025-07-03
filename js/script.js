@@ -175,6 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+//new releases
 
 document.addEventListener('DOMContentLoaded', function() {
     const page = 1;
@@ -207,6 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+// genres
 
 document.addEventListener('DOMContentLoaded', function() {
     // სწორი ჟანრების სახელები RAWG API-სთვის
@@ -251,3 +253,107 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+// popular
+
+document.addEventListener('DOMContentLoaded', function() {
+    const page = 1;
+
+    fetch(`https://api.rawg.io/api/games?dates=2025-01-26,2025-05-26&ordering=-added&key=3201a36bbb524226a678e7d1578f3076&page=${page}&page_size=6`)
+    .then(function(response) {
+        if (response.status !== 200) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+    .then(function(data) {
+        console.log(data);
+        return data;
+    })
+    .then(function(info) {
+        info.results.slice(0, 6).forEach((game, index) => {
+            const gameNumber = index + 1;
+            const imgElement = document.querySelector(`#popular-game-${gameNumber} img`);
+            const nameElement = document.querySelector(`#popular-game-${gameNumber} .popular-game-name`);
+            if (nameElement) {
+                nameElement.textContent = game.name;
+                imgElement.src = game.background_image;
+            };      
+        }) 
+    })
+    .catch(function(error) {
+        console.error('Error fetching new releases:', error);
+    });
+});
+
+// best seller 
+
+document.addEventListener('DOMContentLoaded', function() {
+    const page = 1;
+
+    fetch(`https://api.rawg.io/api/games?&ordering=-added&key=3201a36bbb524226a678e7d1578f3076&page=${page}&page_size=14`)
+    .then(function(response) {
+        if (response.status !== 200) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+    .then(function(data) {
+        console.log(data);
+        return data;
+    })
+    .then(function(info) {
+        info.results.slice(0, 14).forEach((game, index) => {
+            const gameNumber = index + 1;
+            const imgElement = document.querySelector(`#bestseller-game-${gameNumber} img`);
+            const nameElement = document.querySelector(`#bestseller-game-${gameNumber} .bestseller-game-name`);
+            if (nameElement) {
+                nameElement.textContent = game.name;
+                imgElement.src = game.background_image;
+            };      
+        }) 
+    })
+    .catch(function(error) {
+        console.error('Error fetching new releases:', error);
+    });
+});
+
+
+
+//pre order
+document.addEventListener('DOMContentLoaded', function() {
+    const page = 1;
+
+const today = new Date();
+const future = new Date();
+future.setDate(today.getDate() + 120); // 90 days ahead
+
+const start = today.toISOString().split("T")[0];
+const end = future.toISOString().split("T")[0];
+
+fetch(`https://api.rawg.io/api/games?key=3201a36bbb524226a678e7d1578f3076&dates=${start},${end}&ordering=-added&page=${page}&page_size=5`)
+.then(function(response) {
+    if (response.status !== 200) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+.then(function(data) {
+    console.log(data);
+    return data;
+})
+.then(function(info) {
+    info.results.slice(0, 5).forEach((game, index) => {
+        const gameNumber = index + 1;
+        const imgElement = document.querySelector(`#pre-orders-game-${gameNumber}`);
+        const nameElement = document.querySelector(`#pre-orders-game-${gameNumber} .pre-orders-game-name`);
+        if (nameElement) {
+            nameElement.textContent = game.name;
+            imgElement.style.backgroundImage = `url("${game.background_image}")`;
+        };      
+    }) 
+})
+.catch(function(error) {
+    console.error('Error fetching new releases:', error);
+});
+});
