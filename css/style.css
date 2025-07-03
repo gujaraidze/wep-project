@@ -442,6 +442,13 @@ body {
 
 /*----------------------- section 2 ------------------------- */
 
+.game-genres-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 50px 50px 50px;
+}
+
 .game-genres {
     display: flex;
     flex-direction: column;
@@ -1064,8 +1071,13 @@ img {
   }
 
 
+/* 600px, 900px, 1200px, and 1800px */
+/* 1024px;768px;480px;320px */
+  @media only screen and (max-width: 1800px) {
+
+  }
 
 
+  @media only screen and (max-width: 1300px) {
 
-
-
+  }

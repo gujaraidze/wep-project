@@ -174,14 +174,80 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-fetch(`https://api.rawg.io/api/games?dates=2025-05-26,2025-06-26&ordering=-added&key=3201a36bbb524226a678e7d1578f3076&page=1&page_size=6`)
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const page = 1;
+
+    fetch(`https://api.rawg.io/api/games?dates=2025-05-26,2025-06-26&ordering=-added&key=3201a36bbb524226a678e7d1578f3076&page=${page}&page_size=6`)
+    .then(function(response) {
+        if (response.status !== 200) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+    .then(function(data) {
+        console.log(data);
+        return data;
+    })
+    .then(function(info) {
+        info.results.slice(0, 6).forEach((game, index) => {
+            const gameNumber = index + 1;
+            const imgElement = document.querySelector(`#New-Releases-game-${gameNumber} img`);
+            const nameElement = document.querySelector(`#New-Releases-game-${gameNumber} .New-Releases-game-name`);
+            if (nameElement) {
+                nameElement.textContent = game.name;
+                imgElement.src = game.background_image;
+            };      
+        }) 
+    })
+    .catch(function(error) {
+        console.error('Error fetching new releases:', error);
+    });
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // სწორი ჟანრების სახელები RAWG API-სთვის
+    const genres = [
+        "action",
+        "shooter",
+        "role-playing-games-rpg",
+        "sports",
+        "indie",
+        "strategy",
+        "racing",
+        "fighting"
+    ];
+    
+    const usedImages = new Set();
+
+    genres.forEach((genre, index) => {
+        fetch(`https://api.rawg.io/api/games?genres=${genre}&dates=2020-01-01,2025-12-31&ordering=-released,-rating&key=3201a36bbb524226a678e7d1578f3076&page=1&page_size=7`)
         .then(function(response) {
             if (response.status !== 200) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             return response.json();
+        })
+        .then(function(data) {
+            const gameNumber = index + 1;
+            const imgElement = document.querySelector(`#game-genre-${gameNumber} img`);
+            // ვეძებთ პირველ უნიკალურ და არსებულ სურათს
+            const uniqueGame = data.results.find(game => 
+                game.background_image && !usedImages.has(game.background_image)
+            );
+            if (uniqueGame && imgElement) {
+                imgElement.src = uniqueGame.background_image;
+                usedImages.add(uniqueGame.background_image);
+            } else if (imgElement) {
+                imgElement.src = 'img/Rectangle 5.png';
+            }
+        })
+        .catch(function(error) {
+            console.error('Error fetching genre games:', error);
         });
+    });
+});
 
-
-
-// New Releases information
