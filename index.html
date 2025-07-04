@@ -7,31 +7,17 @@
     <title>OASIS - Game Store</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <script src="js/script.js"></script>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"> -->
+    <script src="https://unpkg.com/scrollreveal"></script> 
 </head>
 <body>
+
     <header class="header">
-        <div class="header-container">
+        <nav class="header-container">
             <div class="logo">
                 <a href=""><img class="logo-img" src="img/Apple Arcade.svg" alt="OASIS logo"></a>
                 <a href=""><img class="oasis" src="img/OASIS.svg" alt="oasis name"></a>
             </div>
-
-            <nav class="platforms">
-                <a class="platform" href="#">
-                    <img class="platform-img" src="img/PlayStation.svg" alt="PSN">
-                    <span>PSN</span>
-                </a>
-                <a class="platform" href="#">
-                    <img class="platform-img" src="img/Xbox.svg" alt="Xbox">
-                    <span>Xbox</span>
-                </a>
-                <a class="platform" href="#">
-                    <img class="platform-img" src="img/Monitor.svg" alt="PC">
-                    <span>PC</span>
-                </a>
-            </nav>
 
 
 
@@ -44,7 +30,7 @@
                 <a href="#" class="icon-btn"><img src="img/Shopping Cart.svg" alt="Cart"></a>
                 <a href="#" class="icon-btn"><img src="img/Male User.svg" alt="User"></a>
             </div>
-        </div>
+        </nav>
     </header>
     <main>
         <section class="main-games-bg" id="main-games-bg">
@@ -60,9 +46,9 @@
                 <div class="main-games-carousel-row">
                     <button class="main-games-arrow left" id="main-games-arrow-left">&#8592;</button>
                     <div class="main-games-images" id="main-games-previews">
-                        <div class="main-games-image" data-index="0"><img src="img/dune preview.jpg" alt=""></div>
-                        <div class="main-games-image" data-index="1"><img src="img/doom preview.jpg" alt=""></div>
-                        <div class="main-games-image" data-index="2"><img src="img/f1 25 preview.jpg" alt=""></div>
+                        <div class="main-games-image" data-index="0"><img src="img/dune preview.jpg" alt="main-games-image"></div>
+                        <div class="main-games-image" data-index="1"><img src="img/doom preview.jpg" alt="main-games-image"></div>
+                        <div class="main-games-image" data-index="2"><img src="img/f1 25 preview.jpg" alt="main-games-image"></div>
                     </div>
                     <button class="main-games-arrow right" id="main-games-arrow-right">&#8594;</button>
                 </div>
@@ -82,21 +68,21 @@
             <div class="New-Releases-game-list">
                 <div class="New-Releases-game-row">
                     <div class="New-Releases-game" id="New-Releases-game-1">
-                        <img src="img/placeholder-600x400.png" alt="">
+                        <img src="img/placeholder-600x400.png" alt="New-Releases-game">
                         <div class="New-Releases-game-info">
                             <p class="New-Releases-game-name">game name</p>
                             <p class="New-Releases-game-price">$59.99</p>
                         </div>
                     </div>
                     <div class="New-Releases-game" id="New-Releases-game-2">
-                        <img src="img/placeholder-600x400.png" alt="">
+                        <img src="img/placeholder-600x400.png" alt="New-Releases-game">
                         <div class="New-Releases-game-info">
                             <p class="New-Releases-game-name">game name</p>
                             <p class="New-Releases-game-price">$59.99</p>
                         </div>
                     </div>
                     <div class="New-Releases-game" id="New-Releases-game-3">
-                        <img src="img/placeholder-600x400.png" alt="">
+                        <img src="img/placeholder-600x400.png" alt="New-Releases-game">
                         <div class="New-Releases-game-info">
                             <p class="New-Releases-game-name">game name</p>
                             <p class="New-Releases-game-price">$59.99</p>
@@ -105,21 +91,21 @@
                 </div>
                 <div class="New-Releases-game-row">
                     <div class="New-Releases-game" id="New-Releases-game-4">
-                        <img src="img/placeholder-600x400.png" alt="">
+                        <img src="img/placeholder-600x400.png" alt="New-Releases-game">
                         <div class="New-Releases-game-info">
                             <p class="New-Releases-game-name">game name</p>
                             <p class="New-Releases-game-price">$59.99</p>
                         </div>
                     </div>
                     <div class="New-Releases-game" id="New-Releases-game-5">
-                        <img src="img/placeholder-600x400.png" alt="">
+                        <img src="img/placeholder-600x400.png" alt="New-Releases-game">
                         <div class="New-Releases-game-info">
                             <p class="New-Releases-game-name">game name</p>
                             <p class="New-Releases-game-price">$59.99</p>
                         </div>
                     </div>
                     <div class="New-Releases-game" id="New-Releases-game-6">
-                        <img src="img/placeholder-600x400.png" alt="">
+                        <img src="img/placeholder-600x400.png" alt="New-Releases-game">
                         <div class="New-Releases-game-info">
                             <p class="New-Releases-game-name">game name</p>
                             <p class="New-Releases-game-price">$59.99</p>
@@ -599,5 +585,7 @@
                 <p>&copy; 2025 OASIS. All rights reserved.</p>
             </div>
     </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
