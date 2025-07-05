@@ -92,40 +92,6 @@ body {
 }
 
 
-/* 
-.search-bar {
-    border: 1px solid #D9D9D9;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 21px;
-    padding: 0 10px;
-    width: 300px;
-    height: 37px;
-    margin-right: 8px;
-    margin-left: 8px;
-}
-
-.search-bar input {
-    background: transparent;
-    border: none;
-    color: #fff;
-    font-size: 1rem;
-    outline: none;
-    width: 250px;
-    padding: 0px;
-}
-
-.search-bar img {
-    width: 24px;
-    height: 24px;
-    opacity: 0.7;
-}
-
-.search-bar img:hover {
-    opacity: 1;
-} */
-
 .sign-in{
     background: hsl(261, 100%, 30%);
     border: 0px;
@@ -174,7 +140,7 @@ body {
 
 
 
-/*--------------------------------- header  ----------------------------*/
+/*--------------------------------- header ----------------------------*/
 
 
 
@@ -551,7 +517,7 @@ body {
 }
 
 
-/* -------------------------------section 1---------------------------------- */
+/* =====================================section 1===================================== */
 .main-games-bg {
     top: 0;
     left: 0;
@@ -615,7 +581,7 @@ body {
 }
 
 .main-games-title {
-    max-width: 600px;
+    max-width: 650px;
     height: auto;
     font-size: 50px;
     font-weight: 700;
@@ -752,7 +718,7 @@ body {
 }
 
 
-/*------------------------------ new releases ---------------------------------*/
+/*=====================================new releases=====================================*/
 
 
 .New-Releases-games {
@@ -810,7 +776,7 @@ body {
     font-size: 23px;
  }
 
-/*----------------------- section 2 ------------------------- */
+/*=====================================section 2=====================================*/
 
 .game-genres-header {
     display: flex;
@@ -881,7 +847,7 @@ body {
     box-shadow: 0 4px 24px rgba(0,0,0,0.18);
 }
 
-/*------------------------ section 3 -------------------------- */
+/*=====================================section 3=====================================*/
 
 .popular-games {
     margin-top: 120px;
@@ -938,7 +904,7 @@ body {
 .popular-game-price {
     font-size: 23px;
 }
-/*------------------------- section 4 -------------------------*/
+/*=====================================section 4=====================================*/
 
 .bestseller-games {
     margin: 0px 0px 120px 0px;
@@ -1069,7 +1035,7 @@ body {
 
 
 
-/*------------------------ section 5 -------------------------*/
+/*=====================================section 5=====================================*/
 
 
 .game-deals {
@@ -1153,7 +1119,7 @@ body {
     height: 2px;
     background: #a91010;
     transform: rotate(-15deg);
-    /* შეგიძლიათ შეცვალოთ კუთხე საჭიროების მიხედვით */
+
 }
 
 .game-deal-discount {
@@ -1171,7 +1137,7 @@ body {
     
 }
 
-/*-------------------------- section 6 ----------------------------*/
+/*=====================================section 6=====================================*/
 
 
 .pre-orders {
@@ -1268,7 +1234,7 @@ body {
     background: #00285c;
 }
 
-/*------------------------- section 7 ----------------------------*/
+/*=====================================section 7=====================================*/
 
 .game-reviews {
     margin-bottom: 120px;
@@ -1327,7 +1293,7 @@ body {
     font-size: 25px;
 }
 
-/*---------------------------- footer -----------------------------*/
+/*=====================================footer=====================================*/
 
 .footer {
     display: flex;

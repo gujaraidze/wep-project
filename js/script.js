@@ -391,49 +391,49 @@ document.addEventListener('DOMContentLoaded', function() {
 // ScrollReveal animations  
 
 ScrollReveal().reveal('.New-Releases-games' , {
-    delay: 300,
+    delay: 250,
     distance: '50px',
     easing: 'ease-in-out',
     origin: 'bottom',
 });
 
 ScrollReveal().reveal('.game-genres' , {
-    delay: 300,
+    delay: 250,
     distance: '50px',
     easing: 'ease-in-out',
     origin: 'bottom',
 });
 
 ScrollReveal().reveal('.popular-games' , {
-    delay: 300,
+    delay: 250,
     distance: '50px',
     easing: 'ease-in-out',
     origin: 'bottom',
 });
 
 ScrollReveal().reveal('.bestseller-games' , {
-    delay: 300,
+    delay: 250,
     distance: '50px',
     easing: 'ease-in-out',
     origin: 'bottom',
 });
 
 ScrollReveal().reveal('.game-deals' , {
-    delay: 300,
+    delay: 250,
     distance: '50px',
     easing: 'ease-in-out',
     origin: 'bottom',
 });
 
 ScrollReveal().reveal('.pre-orders' , {
-    delay: 300,
+    delay: 250,
     distance: '50px',
     easing: 'ease-in-out',
     origin: 'bottom',
 });
 
 ScrollReveal().reveal('.game-reviews' , {
-    delay: 300,
+    delay: 250,
     distance: '50px',
     easing: 'ease-in-out',
     origin: 'bottom',
