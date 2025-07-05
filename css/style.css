@@ -1422,14 +1422,25 @@ body {
   right: 10px;
 }
 
-.form-control i.fa-eye {
+.form-control i.fas.fa-eye {
   visibility: visible;
   cursor: pointer;
+  color: #666;
+  font-size: 16px;
+  transition: color 0.3s;
 }
 
-.form-control i.fa-eye-slash {
+.form-control i.fas.fa-eye-slash {
   visibility: hidden;
   cursor: pointer;
+  color: #666;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.form-control i.fas.fa-eye:hover,
+.form-control i.fas.fa-eye-slash:hover {
+  color: #333;
 }
 
 .form-control.success i.fa-check-circle {
