@@ -1598,6 +1598,26 @@ img {
   }
 
 
+.modal-blur {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(6px);
+  z-index: 100;
+  transition: opacity 0.3s;
+}
+.modal-blur.active {
+  display: block;
+  opacity: 1;
+}
+
+
+
+
+
+
+
 /* 600px, 900px, 1200px, and 1800px */
 /* 1024px;768px;480px;320px */
 @media only screen and (max-width: 1800px) {
@@ -1628,18 +1648,5 @@ img {
 
 }
 
-.modal-blur {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.35);
-  backdrop-filter: blur(6px);
-  z-index: 100;
-  transition: opacity 0.3s;
-}
-.modal-blur.active {
-  display: block;
-  opacity: 1;
-}
 
 
