@@ -124,7 +124,7 @@
                                 </li>
                                 <li>
                                     <div class="dropdown-link">
-                                        <button class="sign-in">SIGN IN</button>
+                                        <button class="sign-in" id="sign-in-buttn">SIGN IN</button>
                                     </div>
                                 </li>
                             </ul>
@@ -711,6 +711,53 @@
                 <p>&copy; 2025 OASIS. All rights reserved.</p>
             </div>
     </footer>
+
+
+<!-- form validation -->
+
+    <div class="modal-blur"></div>
+    <div class="form-container">
+        <div class="form-header" style="position: relative;">
+          <h3>Create Account</h3>
+          <button type="button" class="form-close-btn" id="form-close-btn" aria-label="Close" style="position: absolute; top: 16px; right: 20px; background: none; border: none; color: #fff; font-size: 2rem; cursor: pointer;">&times;</button>
+        </div>
+        <form action="" class="form" id="form">
+          <div class="form-control">
+            <label>Username</label>
+            <input type="text" placeholder="Your username" id="username">
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+          <div class="form-control">
+            <label>Email</label>
+            <input type="email" placeholder="Your Email" id="email">
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+          <div class="form-control">
+            <label>Password</label>
+            <input type="password" placeholder="Your password" id="password">
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <i class="far fa-eye" id="show" onclick="togglePassword()"></i>
+            <i class="far fa-eye-slash" id="hide" onclick="togglePassword()"></i>
+            <small>Error message</small>
+          </div>
+          <div class="form-control">
+            <label>Confirm</label>
+            <input type="password" placeholder="Your password again" id="password2">
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <i class="far fa-eye" id="show2" onclick="toggleConfirm()"></i>
+            <i class="far fa-eye-slash" id="hide2" onclick="toggleConfirm()"></i>
+            <small>Error message</small>
+          </div>
+          
+          <button>Submit</button>
+        </form>
+    </div>
 
     <script src="js/script.js"></script>
 </body>
