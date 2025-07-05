@@ -13,14 +13,140 @@
 <body>
 
     <header class="header">
-        <nav class="header-container">
+        <nav class="nav-conteiner">
+            <div class="nav-data">
+                <div class="logo-cont">
+                    <a href="" class="nav-logo">
+                        <i><img class="logo-img" src="img/Apple Arcade.svg" alt="OASIS logo"><i>
+                    </a>
+                    <a href="" class="nav-logo-name">
+                        <i><img class="oasis" src="img/OASIS.svg" alt="oasis name"></i>
+                    </a>
+                </div>
+                <div class="nav_toggle show-icon" id="nav-toggle">
+                    <img class="nav-burger" src="img/icons8-menu-96.png" alt="">
+                    <img class="nav-close" src="img/icons8-x-96.png" alt="">
+                </div>
+                <div class="nav-menu show-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="dropdown-item">
+                            <div class="nav-link">
+                                Store <img class="dropdown-arrow" src="img/icons8-arrow-down-50.png" alt="">
+                            </div>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-link" href="#">New Releases</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-link" href="#">Bestsellers</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-link" href="#">On sale</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-link" href="#">Browse all games</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown-item">
+                            <div class="nav-link">
+                                about <img class="dropdown-arrow" src="img/icons8-arrow-down-50.png" alt="">
+                            </div>
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-link" href="#">Team</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-link" href="#">FAQs</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-link" href="#">Contact Us</a>
+                                </li>
+                            </ul>
+
+                        </li>
+
+                        <li class="dropdown-item" id="community">
+                            <div class="nav-link">
+                                community <img class="dropdown-arrow" src="img/icons8-arrow-down-50.png" alt="">
+                            </div>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-link" href="#">Forums</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-link" href="#">Blog</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-link" href="#">facebook</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-link" href="#">Twitter</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown-item" id="support">
+                            <div class="nav-link">
+                                support <img class="dropdown-arrow" src="img/icons8-arrow-down-50.png" alt="">
+                            </div>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-link" href="#">Contact Support</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-link" href="#">Refund Policy</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-link" href="#">Account Issues</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-link" href="#">Report a Problem</a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <li class="dropdown-item">
+                            <div class="nav-link">
+                                acount <img class="dropdown-arrow" src="img/icons8-arrow-down-50.png" alt="">
+                            </div>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-link" href="#">My account</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-link" href="#">My games</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-link" href="#">Wishlist</a>
+                                </li>
+                                <li>
+                                    <div class="dropdown-link">
+                                        <button class="sign-in">SIGN IN</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="search">
+                <a class="search-bar-img" href="#"><img src="img/Search.svg" alt=""></a>
+            </div>
+        </nav>
+
+        <button class="install-btn" style="position: absolute; right: 40px; top: 18px;">Install Oasis</button>
+
+
+        <!-- <nav class="header-container">
             <div class="logo">
                 <a href=""><img class="logo-img" src="img/Apple Arcade.svg" alt="OASIS logo"></a>
                 <a href=""><img class="oasis" src="img/OASIS.svg" alt="oasis name"></a>
             </div>
-
-
-
             <div class="header-actions">
                 <div class="search-bar">
                     <input type="text" placeholder="Search">
@@ -30,7 +156,7 @@
                 <a href="#" class="icon-btn"><img src="img/Shopping Cart.svg" alt="Cart"></a>
                 <a href="#" class="icon-btn"><img src="img/Male User.svg" alt="User"></a>
             </div>
-        </nav>
+        </nav> -->
     </header>
     <main>
         <section class="main-games-bg" id="main-games-bg">
