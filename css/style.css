@@ -1150,7 +1150,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 500px;
-    height: calc(100%-200px);
+    height: 300px;
     overflow: hidden;
     margin-left: 1vw;
     margin-right: 1vw;
@@ -1192,7 +1192,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0px 50px 50px 50px;
+    margin: 0px 0px 50px 0px;
 }
 
 /* თამაშების ჟანრების სექცია */
@@ -1308,7 +1308,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 500px;
-    height: calc(100%-200px);
+    height: 300px;
     overflow: hidden;
     margin-left: 1vw;
     margin-right: 1vw;
@@ -2292,6 +2292,22 @@ img {
     }
 
     .New-Releases-games-title{
+        font-size: 30px;
+    }
+
+    .bestseller-games-title {
+        font-size: 30px;
+    }
+
+    .game-deals-title {
+        font-size: 30px;
+    }
+
+    .pre-orders-title {
+        font-size: 30px;
+    }
+
+    .game-reviews-title {
         font-size: 30px;
     }
 
