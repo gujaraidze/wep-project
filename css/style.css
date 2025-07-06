@@ -2079,19 +2079,28 @@ img {
 }
 
 /* საშუალო ეკრანების მედია ქვერი */
-@media only screen and (max-width: 1400px) {
-    .nav-logo-name,
-    .install-btn{
+@media only screen and (max-width: 1300px) {
+    .nav-logo-name{
         display: none !important;
     }
 }
 
-/* @media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1200px) {
     #community,
     #support{
         display: none !important;
     }
-} */
+}
+
+@media only screen and (max-width: 1023px) {
+    .install-btn{
+        display: none !important;
+    }
+    #community,
+    #support{
+        display: block !important;
+    }
+}
 
 /* მცირე ეკრანების მედია ქვერი */
 @media only screen and (max-width: 480px) {
@@ -2100,6 +2109,3 @@ img {
 /* ძალიან მცირე ეკრანების მედია ქვერი */
 @media only screen and (max-width: 320px) {
 }
-
-
-
