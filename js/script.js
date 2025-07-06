@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!container || !leftArrow || !rightArrow) return;
     
     let scrollPosition = 0;
-    const scrollAmount = 1400; // 1400 200 ერთი თამაშის სიგანე (270px) + gap (30px)
+    const scrollAmount = 300; // 1400 300 ერთი თამაშის სიგანე (270px) + gap (30px)
     
     function updateArrowVisibility() {
         // მარცხენა ისრის ჩვენება/დამალვა
@@ -182,213 +182,213 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //new releases
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     const page = 1;
+document.addEventListener('DOMContentLoaded', function() {
+    const page = 1;
 
-//     fetch(`https://api.rawg.io/api/games?dates=2025-05-26,2025-06-26&ordering=-added&key=3201a36bbb524226a678e7d1578f3076&page=${page}&page_size=6`)
-//     .then(function(response) {
-//         if (response.status !== 200) {
-//             throw new Error(`HTTP error! status: ${response.status}`);
-//             }
-//             return response.json();
-//         })
-//     .then(function(info) {
-//         info.results.slice(0, 6).forEach((game, index) => {
-//             const gameNumber = index + 1;
-//             const imgElement = document.querySelector(`#New-Releases-game-${gameNumber} img`);
-//             const nameElement = document.querySelector(`#New-Releases-game-${gameNumber} .New-Releases-game-name`);
-//             if (nameElement) {
-//                 nameElement.textContent = game.name;
-//                 imgElement.src = game.background_image;
-//             };      
-//         }) 
-//     })
-//     .catch(function(error) {
-//         console.error('Error fetching new releases:', error);
-//     });
-// });
+    fetch(`https://api.rawg.io/api/games?dates=2025-05-26,2025-06-26&ordering=-added&key=3201a36bbb524226a678e7d1578f3076&page=${page}&page_size=6`)
+    .then(function(response) {
+        if (response.status !== 200) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+    .then(function(info) {
+        info.results.slice(0, 6).forEach((game, index) => {
+            const gameNumber = index + 1;
+            const imgElement = document.querySelector(`#New-Releases-game-${gameNumber} img`);
+            const nameElement = document.querySelector(`#New-Releases-game-${gameNumber} .New-Releases-game-name`);
+            if (nameElement) {
+                nameElement.textContent = game.name;
+                imgElement.src = game.background_image;
+            };      
+        }) 
+    })
+    .catch(function(error) {
+        console.error('Error fetching new releases:', error);
+    });
+});
 
 
-// // genres
+// genres
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     const genres = [
-//         "action",
-//         "shooter",
-//         "role-playing-games-rpg",
-//         "sports",
-//         "indie",
-//         "strategy",
-//         "racing",
-//         "fighting"
-//     ];
+document.addEventListener('DOMContentLoaded', function() {
+    const genres = [
+        "action",
+        "shooter",
+        "role-playing-games-rpg",
+        "sports",
+        "indie",
+        "strategy",
+        "racing",
+        "fighting"
+    ];
     
-//     const usedImages = new Set();
+    const usedImages = new Set();
 
-//     genres.forEach((genre, index) => {
-//         fetch(`https://api.rawg.io/api/games?genres=${genre}&dates=2020-01-01,2025-12-31&ordering=-released,-rating&key=3201a36bbb524226a678e7d1578f3076&page=1&page_size=7`)
-//         .then(function(response) {
-//             if (response.status !== 200) {
-//                 throw new Error(`HTTP error! status: ${response.status}`);
-//             }
-//             return response.json();
-//         })
-//         .then(function(data) {
-//             const gameNumber = index + 1;
-//             const imgElement = document.querySelector(`#game-genre-${gameNumber} img`);
-//             const uniqueGame = data.results.find(game => 
-//                 game.background_image && !usedImages.has(game.background_image)
-//             );
-//             if (uniqueGame && imgElement) {
-//                 imgElement.src = uniqueGame.background_image;
-//                 usedImages.add(uniqueGame.background_image);
-//             } else if (imgElement) {
-//                 imgElement.src = 'img/placeholder-600x400.png';
-//             }
-//         })
-//         .catch(function(error) {
-//             console.error('Error fetching genre games:', error);
-//         });
-//     });
-// });
-
-
-// // popular
-
-// document.addEventListener('DOMContentLoaded', function() {
-//     const page = 1;
-
-//     fetch(`https://api.rawg.io/api/games?dates=2025-01-26,2025-05-26&ordering=-added&key=3201a36bbb524226a678e7d1578f3076&page=${page}&page_size=6`)
-//     .then(function(response) {
-//         if (response.status !== 200) {
-//             throw new Error(`HTTP error! status: ${response.status}`);
-//             }
-//             return response.json();
-//         })
-//     .then(function(info) {
-//         info.results.slice(0, 6).forEach((game, index) => {
-//             const gameNumber = index + 1;
-//             const imgElement = document.querySelector(`#popular-game-${gameNumber} img`);
-//             const nameElement = document.querySelector(`#popular-game-${gameNumber} .popular-game-name`);
-//             if (nameElement) {
-//                 nameElement.textContent = game.name;
-//                 imgElement.src = game.background_image;
-//             };      
-//         }) 
-//     })
-//     .catch(function(error) {
-//         console.error('Error fetching new releases:', error);
-//     });
-// });
-
-// // best seller 
-
-// document.addEventListener('DOMContentLoaded', function() {
-//     const page = 1;
-
-//     fetch(`https://api.rawg.io/api/games?&ordering=-added&key=3201a36bbb524226a678e7d1578f3076&page=${page}&page_size=14`)
-//     .then(function(response) {
-//         if (response.status !== 200) {
-//             throw new Error(`HTTP error! status: ${response.status}`);
-//             }
-//             return response.json();
-//         })
-
-//     .then(function(info) {
-//         info.results.slice(0, 14).forEach((game, index) => {
-//             const gameNumber = index + 1;
-//             const imgElement = document.querySelector(`#bestseller-game-${gameNumber} img`);
-//             const nameElement = document.querySelector(`#bestseller-game-${gameNumber} .bestseller-game-name`);
-//             if (nameElement) {
-//                 nameElement.textContent = game.name;
-//                 imgElement.src = game.background_image;
-//             };      
-//         }) 
-//     })
-//     .catch(function(error) {
-//         console.error('Error fetching new releases:', error);
-//     });
-// });
+    genres.forEach((genre, index) => {
+        fetch(`https://api.rawg.io/api/games?genres=${genre}&dates=2020-01-01,2025-12-31&ordering=-released,-rating&key=3201a36bbb524226a678e7d1578f3076&page=1&page_size=7`)
+        .then(function(response) {
+            if (response.status !== 200) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(function(data) {
+            const gameNumber = index + 1;
+            const imgElement = document.querySelector(`#game-genre-${gameNumber} img`);
+            const uniqueGame = data.results.find(game => 
+                game.background_image && !usedImages.has(game.background_image)
+            );
+            if (uniqueGame && imgElement) {
+                imgElement.src = uniqueGame.background_image;
+                usedImages.add(uniqueGame.background_image);
+            } else if (imgElement) {
+                imgElement.src = 'img/placeholder-600x400.png';
+            }
+        })
+        .catch(function(error) {
+            console.error('Error fetching genre games:', error);
+        });
+    });
+});
 
 
+// popular
 
-// //pre order
-// document.addEventListener('DOMContentLoaded', function() {
-//     const page = 1;
+document.addEventListener('DOMContentLoaded', function() {
+    const page = 1;
 
-// const today = new Date();
-// const future = new Date();
-// future.setDate(today.getDate() + 120); // 90 days ahead
+    fetch(`https://api.rawg.io/api/games?dates=2025-01-26,2025-05-26&ordering=-added&key=3201a36bbb524226a678e7d1578f3076&page=${page}&page_size=6`)
+    .then(function(response) {
+        if (response.status !== 200) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+    .then(function(info) {
+        info.results.slice(0, 6).forEach((game, index) => {
+            const gameNumber = index + 1;
+            const imgElement = document.querySelector(`#popular-game-${gameNumber} img`);
+            const nameElement = document.querySelector(`#popular-game-${gameNumber} .popular-game-name`);
+            if (nameElement) {
+                nameElement.textContent = game.name;
+                imgElement.src = game.background_image;
+            };      
+        }) 
+    })
+    .catch(function(error) {
+        console.error('Error fetching new releases:', error);
+    });
+});
 
-// const start = today.toISOString().split("T")[0];
-// const end = future.toISOString().split("T")[0];
+// best seller 
 
-// fetch(`https://api.rawg.io/api/games?key=3201a36bbb524226a678e7d1578f3076&dates=${start},${end}&ordering=-added&page=${page}&page_size=5`)
-// .then(function(response) {
-//     if (response.status !== 200) {
-//         throw new Error(`HTTP error! status: ${response.status}`);
-//         }
-//         return response.json();
-//     })
+document.addEventListener('DOMContentLoaded', function() {
+    const page = 1;
 
-// .then(function(info) {
-//     info.results.slice(0, 5).forEach((game, index) => {
-//         const gameNumber = index + 1;
-//         const imgElement = document.querySelector(`#pre-orders-game-${gameNumber}`);
-//         const nameElement = document.querySelector(`#pre-orders-game-${gameNumber} .pre-orders-game-name`);
-//         if (nameElement) {
-//             nameElement.textContent = game.name;
-//             imgElement.style.backgroundImage = `url("${game.background_image}")`;
-//         };      
-//     }) 
-// })
-// .catch(function(error) {
-//     console.error('Error fetching new releases:', error);
-// });
-// });
+    fetch(`https://api.rawg.io/api/games?&ordering=-added&key=3201a36bbb524226a678e7d1578f3076&page=${page}&page_size=14`)
+    .then(function(response) {
+        if (response.status !== 200) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+
+    .then(function(info) {
+        info.results.slice(0, 14).forEach((game, index) => {
+            const gameNumber = index + 1;
+            const imgElement = document.querySelector(`#bestseller-game-${gameNumber} img`);
+            const nameElement = document.querySelector(`#bestseller-game-${gameNumber} .bestseller-game-name`);
+            if (nameElement) {
+                nameElement.textContent = game.name;
+                imgElement.src = game.background_image;
+            };      
+        }) 
+    })
+    .catch(function(error) {
+        console.error('Error fetching new releases:', error);
+    });
+});
 
 
 
-// //deals
-// // CheapShark API for game deals and images from RAWG API
+//pre order
+document.addEventListener('DOMContentLoaded', function() {
+    const page = 1;
 
-// document.addEventListener('DOMContentLoaded', function () {
-//     fetch('https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15&pageSize=12')
-//       .then(function (response) {
-//         if (response.status !== 200) {
-//           throw new Error(`HTTP error! status: ${response.status}`);
-//         }
-//         return response.json(); 
-//       })
+const today = new Date();
+const future = new Date();
+future.setDate(today.getDate() + 120); // 90 days ahead
 
-//         .then(function (data) {
-//         data.slice(0, 12).forEach((game, index) => {
-//             const gameNumber = index + 1;
-//             const dealBlock = document.querySelector(`#game-deal-${gameNumber}`);
-//             const imgElement = dealBlock.querySelector(`img`);
-//             const nameElement = document.querySelector(`#game-deal-${gameNumber} .game-deal-name`);
-//             const gamePrice = document.querySelector(`#game-deal-${gameNumber} .game-deal-final-price`)
-//             const gameDiascount = document.querySelector(`#game-deal-${gameNumber} .game-deal-discount`)
-//             const previousPrice = document.querySelector(`#game-deal-${gameNumber} .game-deal-previous-price`)
-//             if (nameElement) {
-//                 nameElement.textContent = game.title;
-//                 gamePrice.textContent = game.salePrice + '$';
-//                 previousPrice.textContent = game.normalPrice;
-//                 gameDiascount.textContent ='-' + Math.floor(game.savings) + '%';
+const start = today.toISOString().split("T")[0];
+const end = future.toISOString().split("T")[0];
+
+fetch(`https://api.rawg.io/api/games?key=3201a36bbb524226a678e7d1578f3076&dates=${start},${end}&ordering=-added&page=${page}&page_size=5`)
+.then(function(response) {
+    if (response.status !== 200) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+
+.then(function(info) {
+    info.results.slice(0, 5).forEach((game, index) => {
+        const gameNumber = index + 1;
+        const imgElement = document.querySelector(`#pre-orders-game-${gameNumber}`);
+        const nameElement = document.querySelector(`#pre-orders-game-${gameNumber} .pre-orders-game-name`);
+        if (nameElement) {
+            nameElement.textContent = game.name;
+            imgElement.style.backgroundImage = `url("${game.background_image}")`;
+        };      
+    }) 
+})
+.catch(function(error) {
+    console.error('Error fetching new releases:', error);
+});
+});
+
+
+
+//deals
+// CheapShark API for game deals and images from RAWG API
+
+document.addEventListener('DOMContentLoaded', function () {
+    fetch('https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15&pageSize=12')
+      .then(function (response) {
+        if (response.status !== 200) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json(); 
+      })
+
+        .then(function (data) {
+        data.slice(0, 12).forEach((game, index) => {
+            const gameNumber = index + 1;
+            const dealBlock = document.querySelector(`#game-deal-${gameNumber}`);
+            const imgElement = dealBlock.querySelector(`img`);
+            const nameElement = document.querySelector(`#game-deal-${gameNumber} .game-deal-name`);
+            const gamePrice = document.querySelector(`#game-deal-${gameNumber} .game-deal-final-price`)
+            const gameDiascount = document.querySelector(`#game-deal-${gameNumber} .game-deal-discount`)
+            const previousPrice = document.querySelector(`#game-deal-${gameNumber} .game-deal-previous-price`)
+            if (nameElement) {
+                nameElement.textContent = game.title;
+                gamePrice.textContent = game.salePrice + '$';
+                previousPrice.textContent = game.normalPrice;
+                gameDiascount.textContent ='-' + Math.floor(game.savings) + '%';
                 
-//                 fetch(`https://api.rawg.io/api/games?&key=3201a36bbb524226a678e7d1578f3076&search=${encodeURIComponent(game.title)}&page_size=1`)
-//                 .then (response => response.json())
+                fetch(`https://api.rawg.io/api/games?&key=3201a36bbb524226a678e7d1578f3076&search=${encodeURIComponent(game.title)}&page_size=1`)
+                .then (response => response.json())
 
-//                 .then (function (data) {
-//                     imgElement.src = data.results[0].background_image;
-//                 });
-//             };      
-//         }) 
-//     })
-//       .catch(function (error) {
-//         console.error('Error fetching CheapShark deals:', error);
-//       });
-//   });
+                .then (function (data) {
+                    imgElement.src = data.results[0].background_image;
+                });
+            };      
+        }) 
+    })
+      .catch(function (error) {
+        console.error('Error fetching CheapShark deals:', error);
+      });
+  });
 
 
 
