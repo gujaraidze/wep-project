@@ -57,6 +57,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 el.classList.remove('active');
             }
         });
+        
+        // Wishlist ღილაკის განახლება
+        if (window.mainWishlistManager) {
+            window.mainWishlistManager.updateMainWishlistButton(games[index].title);
+        }
     }
 
     // preview-ზე დაჭერა
@@ -586,22 +591,28 @@ const isEmail = (email) => {
 
 const togglePassword = () => {
   const psw = document.getElementById('password');
+  
   const show = document.getElementById('show');
   const hide = document.getElementById('hide');
   
+  
+
   if (psw.type === "password") {
       psw.type = "text";
       show.style.visibility = 'hidden';
       hide.style.visibility = 'visible';
-  } else {
+    } else {
       psw.type = "password";
       show.style.visibility = 'visible';
       hide.style.visibility = 'hidden';
-  }
+    }
+  
+  
 }
 
 const toggleConfirm = () => {
   const confirm = document.getElementById('password2');
+  
   const show2 = document.getElementById('show2');
   const hide2 = document.getElementById('hide2');
   
@@ -609,13 +620,350 @@ const toggleConfirm = () => {
       confirm.type = "text";
       show2.style.visibility = 'hidden';
       hide2.style.visibility = 'visible';
-  } else {
+    } else {
       confirm.type = "password";
       show2.style.visibility = 'visible';
       hide2.style.visibility = 'hidden';
-  }
+    }
 }
 
 if (closeBtn) {
   closeBtn.addEventListener('click', closeModal);
 }
+
+// WISHLIST FUNCTIONALITY FOR MAIN GAMES CAROUSEL
+document.addEventListener('DOMContentLoaded', function() {
+    // Wishlist ფუნქციები მთავარი კაროუსელისთვის
+    const mainWishlistManager = {
+        // Wishlist-ის მიღება
+        getWishlist() {
+            const saved = localStorage.getItem('oasis_main_wishlist');
+            return saved ? JSON.parse(saved) : [];
+        },
+
+        // Wishlist-ში დამატება
+        addToWishlist(gameData) {
+            let wishlist = this.getWishlist();
+            
+            // შეამოწმეთ თუ თამაში უკვე არის wishlist-ში
+            const existingGame = wishlist.find(game => game.name === gameData.name);
+            if (existingGame) {
+                console.log('Game already in wishlist');
+                return false;
+            }
+
+            // ახალი თამაშის დამატება
+            const newGame = {
+                name: gameData.name,
+                price: gameData.price,
+                image: gameData.image,
+                addedAt: new Date().toISOString()
+            };
+
+            wishlist.push(newGame);
+            localStorage.setItem('oasis_main_wishlist', JSON.stringify(wishlist));
+            
+            // Wishlist ინდიკატორის განახლება
+            this.updateWishlistIndicator();
+            
+            return true;
+        },
+
+        // Wishlist-დან წაშლა
+        removeFromWishlist(gameName) {
+            let wishlist = this.getWishlist();
+            wishlist = wishlist.filter(game => game.name !== gameName);
+            localStorage.setItem('oasis_main_wishlist', JSON.stringify(wishlist));
+            
+            this.updateWishlistIndicator();
+        },
+
+        // შეამოწმეთ თუ თამაში არის wishlist-ში
+        isInWishlist(gameName) {
+            const wishlist = this.getWishlist();
+            return wishlist.some(game => game.name === gameName);
+        },
+
+        // Wishlist ინდიკატორის განახლება
+        updateWishlistIndicator() {
+            const wishlist = this.getWishlist();
+            const wishlistCount = wishlist.length;
+            
+            const wishlistCountElement = document.getElementById('wishlist-count');
+            if (wishlistCountElement) {
+                // Bounce ანიმაცია
+                wishlistCountElement.classList.add('updating');
+                
+                setTimeout(() => {
+                    wishlistCountElement.textContent = wishlistCount;
+                    wishlistCountElement.classList.remove('updating');
+                    
+                    // ინდიკატორის ჩვენება/დამალვა
+                    if (wishlistCount > 0) {
+                        wishlistCountElement.style.display = 'inline-flex';
+                    } else {
+                        wishlistCountElement.style.display = 'none';
+                    }
+                }, 300);
+            }
+        },
+
+        // მთავარი wishlist ღილაკის განახლება
+        updateMainWishlistButton(currentGameName) {
+            const wishlistButton = document.getElementById('wishlist');
+            if (wishlistButton) {
+                const isInWishlist = this.isInWishlist(currentGameName);
+                
+                if (isInWishlist) {
+                    wishlistButton.textContent = 'remove from wishlist';
+                    wishlistButton.style.background = '#e74c3c';
+                    wishlistButton.style.borderColor = '#e74c3c';
+                } else {
+                    wishlistButton.textContent = 'add to wishlist';
+                    wishlistButton.style.background = '';
+                    wishlistButton.style.borderColor = '';
+                }
+            }
+        }
+    };
+
+    // მთავარი wishlist ღილაკის event listener
+    const wishlistButton = document.getElementById('wishlist');
+    if (wishlistButton) {
+        wishlistButton.addEventListener('click', function() {
+            // მიმდინარე თამაშის მონაცემების მიღება
+            const currentGameTitle = document.getElementById('main-game-title').textContent;
+            const currentGamePrice = document.getElementById('main-game-price').textContent;
+            
+            // მიმდინარე თამაშის სურათის მიღება
+            const activeImage = document.querySelector('.main-games-image.active img');
+            const currentGameImage = activeImage ? activeImage.src : 'img/dune.jpg';
+            
+            const gameData = {
+                name: currentGameTitle,
+                price: currentGamePrice,
+                image: currentGameImage
+            };
+
+            if (mainWishlistManager.isInWishlist(currentGameTitle)) {
+                // თამაშის წაშლა wishlist-დან
+                mainWishlistManager.removeFromWishlist(currentGameTitle);
+                this.textContent = 'add to wishlist';
+                this.style.background = '';
+                this.style.borderColor = '';
+                
+                // შეტყობინება
+                showNotification('Game removed from wishlist', 'info');
+            } else {
+                // თამაშის დამატება wishlist-ში
+                const success = mainWishlistManager.addToWishlist(gameData);
+                
+                if (success) {
+                    this.textContent = 'remove from wishlist';
+                    this.style.background = '#e74c3c';
+                    this.style.borderColor = '#e74c3c';
+                    
+                    // შეტყობინება
+                    showNotification('Game added to wishlist!', 'success');
+                }
+            }
+        });
+    }
+
+    // შეტყობინებების ფუნქცია
+    function showNotification(message, type = 'info') {
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        
+        // იკონის დამატება
+        const icon = type === 'success' ? '✓' : '';
+        notification.innerHTML = `
+            <span style="margin-right: 8px; font-size: 16px;">${icon}</span>
+            <span>${message}</span>
+        `;
+        
+        // CSS სტილები
+        notification.style.cssText = `
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: ${type === 'success' ? '#05980A' : '#0090ff'};
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            z-index: 1000;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            min-width: 200px;
+        `;
+        
+        document.body.appendChild(notification);
+        
+        // ანიმაცია
+        setTimeout(() => {
+            notification.style.transform = 'translateX(0)';
+        }, 100);
+        
+        // ავტომატური წაშლა
+        setTimeout(() => {
+            notification.style.transform = 'translateX(100%)';
+            setTimeout(() => {
+                if (document.body.contains(notification)) {
+                    document.body.removeChild(notification);
+                }
+            }, 300);
+        }, 3000);
+    }
+
+    // Wishlist გვერდის ფუნქციონალი
+    const wishlistLink = document.getElementById('wishlist-link');
+    if (wishlistLink) {
+        wishlistLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            showWishlistModal();
+        });
+    }
+
+    function showWishlistModal() {
+        const wishlist = mainWishlistManager.getWishlist();
+        
+        if (wishlist.length === 0) {
+            showNotification('Your wishlist is empty. Add some games to get started!', 'info');
+            return;
+        }
+        
+        // Wishlist მოდალის შექმნა
+        const modal = document.createElement('div');
+        modal.className = 'wishlist-modal';
+        modal.innerHTML = `
+            <div class="wishlist-modal-content">
+                <div class="wishlist-modal-header">
+                    <h3>🎮 My Wishlist (${wishlist.length})</h3>
+                    <button class="close-btn" title="Close">&times;</button>
+                </div>
+                <div class="wishlist-items">
+                    ${wishlist.map((game, index) => `
+                        <div class="wishlist-item" data-index="${index}">
+                            <img src="${game.image}" alt="${game.name}" onerror="this.src='img/placeholder-600x400.png'">
+                            <div class="wishlist-item-info">
+                                <h4>${game.name}</h4>
+                                <p class="game-price">${game.price}</p>
+                                <p class="added-date">Added: ${new Date(game.addedAt).toLocaleDateString()}</p>
+                                <button class="remove-wishlist-btn" data-game-name="${game.name}" title="Remove from wishlist">
+                                    🗑️ Remove
+                                </button>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="wishlist-footer">
+                    <button class="clear-all-btn" id="clear-all-wishlist">Clear All</button>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        
+        // წაშლის ღილაკების event listeners
+        modal.querySelectorAll('.remove-wishlist-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const gameName = this.dataset.gameName;
+                mainWishlistManager.removeFromWishlist(gameName);
+                this.closest('.wishlist-item').remove();
+                
+                // ინდიკატორის განახლება
+                const count = mainWishlistManager.getWishlist().length;
+                document.getElementById('wishlist-count').textContent = count;
+                
+                if (count === 0) {
+                    modal.remove();
+                    showNotification('Wishlist is now empty', 'info');
+                } else {
+                    // მოდალის სათაურის განახლება
+                    const header = modal.querySelector('.wishlist-modal-header h3');
+                    if (header) {
+                        header.textContent = `🎮 My Wishlist (${count})`;
+                    }
+                    showNotification('Game removed from wishlist', 'info');
+                }
+            });
+        });
+        
+        // Clear All ღილაკის ფუნქციონალი
+        const clearAllBtn = modal.querySelector('#clear-all-wishlist');
+        if (clearAllBtn) {
+            clearAllBtn.addEventListener('click', () => {
+                if (confirm('Are you sure you want to clear all items from your wishlist? This action cannot be undone.')) {
+                    localStorage.removeItem('oasis_main_wishlist');
+                    mainWishlistManager.updateWishlistIndicator();
+                    modal.remove();
+                    showNotification('All items removed from wishlist!', 'success');
+                    
+                    // მთავარი wishlist ღილაკის განახლება
+                    const currentGameTitle = document.getElementById('main-game-title').textContent;
+                    if (currentGameTitle) {
+                        mainWishlistManager.updateMainWishlistButton(currentGameTitle);
+                    }
+                }
+            });
+        }
+        
+        // დახურვის ღილაკი
+        modal.querySelector('.close-btn').addEventListener('click', () => {
+            modal.remove();
+        });
+        
+        // მოდალის გარეთ დაჭერა
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.remove();
+            }
+        });
+        
+        // კლავიატურის მხარდაჭერა (Escape ღილაკი)
+        const handleEscape = (e) => {
+            if (e.key === 'Escape') {
+                modal.remove();
+                document.removeEventListener('keydown', handleEscape);
+            }
+        };
+        document.addEventListener('keydown', handleEscape);
+        
+        // მოდალის წაშლისას event listener-ის წაშლა
+        const originalRemove = modal.remove;
+        modal.remove = function() {
+            document.removeEventListener('keydown', handleEscape);
+            return originalRemove.call(this);
+        };
+    }
+
+    // მთავარი კაროუსელის setActive ფუნქციის განახლება
+    const originalSetActive = window.setActive;
+    if (originalSetActive) {
+        window.setActive = function(index) {
+            originalSetActive(index);
+            
+            // მიმდინარე თამაშის სახელის მიღება
+            const currentGameTitle = document.getElementById('main-game-title').textContent;
+            mainWishlistManager.updateMainWishlistButton(currentGameTitle);
+        };
+    }
+
+    // ინიციალიზაცია
+    mainWishlistManager.updateWishlistIndicator();
+    
+    // მთავარი კაროუსელის ინიციალიზაციის შემდეგ wishlist ღილაკის განახლება
+    setTimeout(() => {
+        const currentGameTitle = document.getElementById('main-game-title').textContent;
+        if (currentGameTitle) {
+            mainWishlistManager.updateMainWishlistButton(currentGameTitle);
+        }
+    }, 100);
+
+    // გლობალურად ხელმისაწვდომი
+    window.mainWishlistManager = mainWishlistManager;
+});

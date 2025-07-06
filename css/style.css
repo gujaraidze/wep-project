@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-
+/* მთავარი body სტილები */
 body {
     margin: 0;
     /* font-family: 'Arial', sans-serif; */
@@ -9,7 +9,7 @@ body {
     color: #ffffff;
 }
 
-
+/* ინსტალაციის ღილაკის სტილები */
 .install-btn {
     background: none;
     border: 1px solid #ffffff;
@@ -24,74 +24,23 @@ body {
     transition: background 0.2s, color 0.2s;
 }
 
+/* ინსტალაციის ღილაკის ჰოვერ ეფექტი */
 .install-btn:hover {
     background: #0090ff;
     color: #fff;
     border-color: #0090ff;
 }
 
+/* ინსტალაციის ღილაკის აქტივი მდგომარეობა */
 .install-btn:active {
     background: #0070cc;
     color: #fff;
     border-color: #0070cc;
 }
 
-.search-bar {
-    height: 37px;
-    display: flex;
-    cursor: pointer;
-    padding-left: 10px;
-    padding-right: 20px;
-    margin-left: 20px;
-    border-radius: 30px;
-    align-items: center;
-    border: 1px solid #D9D9D9;
-    width: 60px;
-    transition: width 0.5s;
-    background: transparent;
-    overflow: hidden;
-}
-
-.search-bar input {
-    width: 0;
-    min-width: 0;
-    color: #ffffff;
-    outline: none;
-    border: none;
-    font-weight: 500;
-    transition: width 0.5s;
-    background: transparent;
-    padding: 0;
-    margin-left: 8px;
-}
-
-.search-bar:hover {
-    width: 320px;
-    transition: width 0.5s;
-}
-
-.search-bar:hover input {
-    width: 300px;
-    transition: width 0.5s;
-    padding-left: 8px;
-}
 
 
-.search-bar input:hover {
-    width: 400px;
-}
-
-.search-bar input{
-    width: 0px;
-    color: #ffffff;
-    outline: none;
-    border: none;
-    font-weight: 500;
-    transition: 0.8s;
-    background: transparent;
-}
-
-
+/* შესვლის ღილაკის სტილები */
 .sign-in{
     background: hsl(261, 100%, 30%);
     border: 0px;
@@ -105,15 +54,19 @@ body {
     transition: background 0.2s, color 0.2s;
 }
 
+/* შესვლის ღილაკის ჰოვერ ეფექტი */
 .sign-in:hover {
     background: hsl(261, 100%, 50%);
 }
+
+/* შესვლის ღილაკის აქტივი მდგომარეობა */
 .sign-in:active {
     background: hsl(261, 100%, 21%);
     color: #fff;
     border-color: hsl(261, 100%, 2%);
 } 
 
+/* "მეტის ნახვა" ღილაკის სტილები */
 .see-more-btn {
     background: hsl(261, 100%, 30%);
     border: 0px;;
@@ -128,29 +81,333 @@ body {
     transition: background 0.2s, color 0.2s;
 }
 
+/* "მეტის ნახვა" ღილაკის ჰოვერ ეფექტი */
 .see-more-btn:hover {
     background: hsl(261, 100%, 50%);
 }
 
+/* "მეტის ნახვა" ღილაკის აქტივი მდგომარეობა */
 .see-more-btn:active {
     background: hsl(261, 100%, 21%);
     color: #fff;
     border-color: hsl(261, 100%, 2%);
-} */
+} 
 
+/* Wishlist ინდიკატორის სტილები (რაოდენობის ჩვენება) */
+.wishlist-indicator {
+    background: linear-gradient(135deg, #05980A 0%, #04a80b 100%);
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 5px;
+    animation: pulse 2s infinite;
+    box-shadow: 0 2px 8px rgba(5, 152, 10, 0.3);
+    transition: all 0.3s ease;
+}
 
+/* Wishlist ინდიკატორის დამალვა ცარიელი მდგომარეობაში */
+.wishlist-indicator:empty,
+.wishlist-indicator[style*="display: none"] {
+    display: none !important;
+}
+
+/* Pulse ანიმაცია wishlist ინდიკატორისთვის */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Bounce ანიმაცია wishlist ინდიკატორის განახლებისას */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-5px);
+    }
+    60% {
+        transform: translateY(-3px);
+    }
+}
+
+/* Wishlist ინდიკატორის განახლების კლასი */
+.wishlist-indicator.updating {
+    animation: bounce 0.6s ease;
+}
+
+/* Wishlist მოდალის ფონი */
+.wishlist-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+/* FadeIn ანიმაცია მოდალისთვის */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Wishlist მოდალის შიგთავსი */
+.wishlist-modal-content {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow: hidden;
+    border: 1px solid #333;
+    animation: slideUp 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+}
+
+/* SlideUp ანიმაცია მოდალის შიგთავსისთვის */
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Wishlist მოდალის სათაური */
+.wishlist-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #333;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border-radius: 12px 12px 0 0;
+}
+
+/* Wishlist მოდალის სათაურის ტექსტი */
+.wishlist-modal-header h3 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* მოდალის დახურვის ღილაკი */
+.close-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* მოდალის დახურვის ღილაკის ჰოვერ ეფექტი */
+.close-btn:hover {
+    color: #0090ff;
+}
+
+/* Wishlist ელემენტების კონტეინერი */
+.wishlist-items {
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Wishlist ელემენტების სქროლბარის სტილები */
+.wishlist-items::-webkit-scrollbar {
+    width: 6px;
+}
+
+.wishlist-items::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 3px;
+}
+
+.wishlist-items::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
+}
+
+.wishlist-items::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Wishlist-ის ცალკეული ელემენტი */
+.wishlist-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border-bottom: 1px solid #333;
+    transition: all 0.2s ease;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+
+/* Wishlist ელემენტის ჰოვერ ეფექტი */
+.wishlist-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(5px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Wishlist ელემენტის ბოლო ბავშვი */
+.wishlist-item:last-child {
+    border-bottom: none;
+}
+
+/* Wishlist ელემენტის სურათი */
+.wishlist-item img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Wishlist ელემენტის სურათის ჰოვერ ეფექტი */
+.wishlist-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Wishlist ელემენტის ინფორმაციის კონტეინერი */
+.wishlist-item-info {
+    flex: 1;
+}
+
+/* Wishlist ელემენტის სათაური */
+.wishlist-item-info h4 {
+    margin: 0 0 5px 0;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+/* Wishlist ელემენტის ფასი */
+.wishlist-item-info p.game-price {
+    margin: 0 0 5px 0;
+    color: #0090ff;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+/* Wishlist ელემენტის დამატების თარიღი */
+.wishlist-item-info p.added-date {
+    margin: 0 0 10px 0;
+    color: #888;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+/* Wishlist-დან წაშლის ღილაკი */
+.remove-wishlist-btn {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+/* Wishlist-დან წაშლის ღილაკის ჰოვერ ეფექტი */
+.remove-wishlist-btn:hover {
+    background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+}
+
+/* Wishlist მოდალის ქვედა ნაწილი */
+.wishlist-footer {
+    padding: 20px;
+    border-top: 1px solid #333;
+    text-align: center;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border-radius: 0 0 12px 12px;
+}
+
+/* ყველაფრის წაშლის ღილაკი */
+.clear-all-btn {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+}
+
+/* ყველაფრის წაშლის ღილაკის ჰოვერ ეფექტი */
+.clear-all-btn:hover {
+    background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+}
+
+/* შეტყობინებების ანიმაცია */
+.notification {
+    animation: slideIn 0.3s ease;
+}
+
+/* SlideIn ანიმაცია შეტყობინებებისთვის */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 
 /*--------------------------------- header ----------------------------*/
 
-
-
+/* ნავიგაციის კონტეინერი */
 .nav-conteiner {
-    max-width: 1120px;
     margin-inline: 1.5rem;
 }
 
-
-
+/* მთავარი header სექცია */
 .header{
     position: fixed;
     top: 0;
@@ -161,18 +418,19 @@ body {
     z-index: 100;
 }
 
+/* ნავიგაციის სტილები */
 .nav {
     height: var(--header-height);
 }
 
+/* ლოგოს კონტეინერი */
 .logo-cont{
-    /* display: flex;
-    align-items: center; */
     display: inline-flex;
     align-items: center;
     column-gap: .25rem;
 }
 
+/* ნავიგაციის მონაცემების კონტეინერი */
 .nav-data{
     height: 100%;
     display: flex;
@@ -180,13 +438,14 @@ body {
     align-items: center;
 }
 
-
+/* ნავიგაციის toggle ღილაკი */
 .nav_toggle{
     position: relative;
     width: 32px;
     height: 32px;
 }
 
+/* ნავიგაციის burger და close ღილაკები */
 .nav-burger,.nav-close {
     position: absolute;
     width: 50px;
@@ -197,20 +456,19 @@ body {
     transition: opacity .1s, transform .4s;
 }
 
+/* ნავიგაციის დახურვის ღილაკი */
 .nav-close{
     opacity: 0;
 }
 
+/* Dropdown ისრის სტილები */
 .dropdown-arrow {
     width: 10px;
     height: 10px;
 }
 
-
-
-@media only screen and (max-width: 1024px) {
-
-    
+/* მობილური ნავიგაციის მენიუ */
+@media only screen and (max-width: 1023px) {
     .nav-menu{
         position: absolute;
         left: 0;
@@ -221,6 +479,7 @@ body {
         pointer-events: none;
         opacity: 0;
         transition: top .4s, opacity .3s;
+        z-index: 101;
     }
     
     .nav-menu::-webkit-scrollbar{
@@ -230,10 +489,11 @@ body {
     .nav-list{
         background: rgba(0, 0, 0, 0.7);
         padding-top: 1rem;
+        margin-top: 2.31rem;
     }
-    
 }
 
+/* ნავიგაციის ლინკების სტილები */
 .nav-link{
     color: #ffffff;
     font-weight: 500;
@@ -244,15 +504,18 @@ body {
     transition: background-color .3s;
 }
 
+/* ნავიგაციის ლინკების ჰოვერ ეფექტი */
 .nav-link:hover{
     background: rgba(0, 0, 0, 1);
 }
 
+/* მენიუს ჩვენების კლასი */
 .show-menu{
     opacity: 100;
     pointer-events: initial;
 }
 
+/* აიქონის ჩვენების კლასი */
 .show-icon .nav-burger{
     opacity: 0;
     transform: rotate(90deg);
@@ -263,10 +526,12 @@ body {
     transform: rotate(90deg);
 }
 
+/* Dropdown ელემენტის კურსორი */
 .dropdown-item{
     cursor: pointer;
 }
 
+/* Dropdown ლინკების სტილები */
 .dropdown-link{
     padding: 1.25rem 1.25rem 1.25rem 2.5rem;
     color: #ffffff;
@@ -277,21 +542,57 @@ body {
     transition: background-color .3s;
     font-weight: 500;
 }
+
+/* Dropdown ლინკების ჰოვერ ეფექტი */
 .dropdown-link:hover{
     background: rgb(44, 44, 44);
 }
 
+/* Dropdown მენიუს სტილები */
 .dropdown-menu{
     max-height: 0;
     overflow: hidden;
     transition: max-height .4s ease-out;
 }
 
+/* Dropdown მენიუს ჰოვერ ეფექტი */
 .dropdown-item:hover .dropdown-menu{
     max-height: 1000px;
     transition: max-height .4s ease-in;
 }
 
+.search-bar {
+    height: 37px;
+    display: flex;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 20px;
+    margin-left: 20px;
+    border-radius: 30px;
+    align-items: center;
+    border: 1px solid #D9D9D9;
+    width: var(--header-width);
+    background: transparent;
+    overflow: hidden;
+    z-index: 102 !important;
+}
+
+/* ძიების ზოლის input ველი */
+.search-bar input {
+    width: 100%;
+    height: 40px;
+    min-width: 0;
+    color: #ffffff;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    background: transparent;
+    padding: 0;
+    margin-left: 8px;
+}
+
+
+/* დესკტოპის ნავიგაციის სტილები */
 @media only screen and (min-width: 1024px){
     
     .nav-conteiner{
@@ -354,6 +655,66 @@ body {
         pointer-events: initial;
     }
     
+    /* ძიების ზოლის კონტეინერი */
+.search-bar {
+    height: 37px;
+    display: flex;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 20px;
+    margin-left: 20px;
+    border-radius: 30px;
+    align-items: center;
+    border: 1px solid #D9D9D9;
+    width: 60px;
+    transition: width 0.5s;
+    background: transparent;
+    overflow: hidden;
+    z-index: 102 !important;
+}
+
+/* ძიების ზოლის input ველი */
+.search-bar input {
+    width: 0;
+    min-width: 0;
+    color: #ffffff;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    transition: width 0.5s;
+    background: transparent;
+    padding: 0;
+    margin-left: 8px;
+}
+
+/* ძიების ზოლის ჰოვერ ეფექტი */
+.search-bar:hover {
+    width: 320px;
+    transition: width 0.5s;
+}
+
+/* ძიების ზოლის input-ის ჰოვერ ეფექტი */
+.search-bar:hover input {
+    width: 300px;
+    transition: width 0.5s;
+    padding-left: 8px;
+}
+
+/* ძიების ზოლის input-ის ჰოვერი */
+.search-bar input:hover {
+    width: 400px;
+}
+
+/* ძიების ზოლის input-ის ძირითადი სტილები */
+.search-bar input{
+    width: 0px;
+    color: #ffffff;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    transition: 0.8s;
+    background: transparent;
+}
 
 }
 
@@ -518,6 +879,8 @@ body {
 
 
 /* =====================================section 1===================================== */
+
+/* მთავარი თამაშების ფონი */
 .main-games-bg {
     top: 0;
     left: 0;
@@ -526,6 +889,7 @@ body {
     z-index: 0;
 }
 
+/* მთავარი თამაშების სურათების კონტეინერი */
 .main-games-images-container {
     display: flex;
     flex-direction: column;
@@ -534,6 +898,7 @@ body {
     position: relative;
 }
 
+/* მთავარი თამაშების კაროუსელის მწკრივი */
 .main-games-carousel-row {
     display: flex;
     flex-direction: row;
@@ -544,6 +909,7 @@ body {
     min-height: 120px;
 }
 
+/* მთავარი თამაშების ისრის ღილაკი */
 .main-games-arrow {
     background: #181818;
     border: none;
@@ -563,25 +929,30 @@ body {
     align-self: center;
     margin-top: 130px;
 }
+
+/* მთავარი თამაშების ისრის ღილაკის ჰოვერ ეფექტი */
 .main-games-arrow:hover {
     background: #0090ff;
     color: #fff;
     transform: scale(1.12);
 }
 
+/* მთავარი თამაშების preview სურათების კონტეინერი */
 #main-games-previews {
     display: flex;
     align-items: center;
     gap: 32px;
 }
 
+/* მთავარი თამაშების ინფორმაციის კონტეინერი */
 .main-games-info {
     padding-top: 257px;
     margin-left: 80px;
 }
 
+/* მთავარი თამაშების სათაური */
 .main-games-title {
-    max-width: 700px;
+    max-width: 650px;
     height: auto;
     font-size: 50px;
     font-weight: 700;
@@ -590,6 +961,7 @@ body {
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
+/* მთავარი თამაშების ფასი */
 .main-games-price {
     font-size: 24px;
     font-weight: 500;
@@ -598,12 +970,14 @@ body {
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4); 
 }
 
+/* მთავარი თამაშების ღილაკების კონტეინერი */
 .main-games-buttons {
     display: flex;
     gap: 16px;
     align-items: center;
 }
 
+/* "ყიდვა" ღილაკის სტილები */
 .buy-now {
     border-radius: 0px;
     border-radius: 50px;
@@ -617,18 +991,25 @@ body {
     font-size: 20px;
 }
 
+/* "ყიდვა" ღილაკის ჰოვერ ეფექტი */
 .buy-now:hover {
     background: #007f00;
 }
+
+/* "ყიდვა" ღილაკის აქტივი მდგომარეობა */
 .buy-now:active {
     background: #005f00;
 }
 
+/* Wishlist ღილაკის სტილები */
 .wishlist {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: none;
     border: 1px solid #ffffff;
     color: #ffffff;
-    width: 123px;
+    width: 150px;
     height: 44px;
     border-radius: 8px;
     padding: 6px 18px;
@@ -638,18 +1019,21 @@ body {
     transition: background 0.2s, color 0.2s;
 }
 
+/* Wishlist ღილაკის ჰოვერ ეფექტი */
 .wishlist:hover {
     background: #0090ff;
     color: #fff;
     border-color: #0090ff;
 }
 
+/* Wishlist ღილაკის აქტივი მდგომარეობა */
 .wishlist:active {
     background: #0070cc;
     color: #fff;
     border-color: #0070cc;
 }
 
+/* მთავარი თამაშების სურათების კონტეინერი */
 .main-games-images {
     display: flex;
     justify-content: space-between;
@@ -657,8 +1041,9 @@ body {
     margin-left: 80px;
     margin-right: 80px;
     object-fit: contain;
-
 }
+
+/* მთავარი თამაშების წრეების კონტეინერი */
 .main-games-circles {
     display: flex;
     justify-content: center;
@@ -668,6 +1053,7 @@ body {
     width: 100%;
 }
 
+/* მთავარი თამაშების წრის სტილები */
 .circle {
     width: 11px;
     height: 11px;
@@ -675,18 +1061,21 @@ body {
     background-color: #ffffff;
 }
 
+/* მთავარი თამაშების აქტივი წრე */
 .circle.active {
     background: rgb(0, 149, 255) !important;
     opacity: 1 !important;
     transform: scale(1.8) !important;
 }
 
+/* მთავარი თამაშების წრის ჰოვერ ეფექტი */
 .circle:hover {
     background: rgb(0, 149, 255) !important;
     opacity: 1 !important;
     transform: scale(1.8) !important;
 }
 
+/* მთავარი თამაშების აქტივი სურათი */
 .main-games-image.active {
     outline: 3px solid #0090ff;
     filter: brightness(1.1);
@@ -694,12 +1083,14 @@ body {
     z-index: 2;
 }
 
+/* მთავარი თამაშების აქტივი წრის სტილები */
 .main-games-circles .circle.active {
     background: #0090ff !important;
     transform: scale(1.5);
     opacity: 1 !important;
 }
 
+/* მთავარი თამაშების სურათის კონტეინერი */
 .main-games-image {
     width: 390px;
     height: 200px;
@@ -710,6 +1101,7 @@ body {
     border-radius: 12px; /* მომრგვალებული კუთხეები */
 }
 
+/* მთავარი თამაშების სურათის სტილები */
 .main-games-image img {
     width: 100%;
     height: 100%;
@@ -720,18 +1112,19 @@ body {
 
 /*=====================================new releases=====================================*/
 
-
+/* ახალი გამოშვებების სექცია */
 .New-Releases-games {
     margin-top: 120px;
 }
 
-
+/* ახალი გამოშვებების სათაური */
 .New-Releases-games-header {
     display: flex;
     justify-content: space-between;
     margin: 0px 50px 50px 50px;
 }
 
+/* ახალი გამოშვებების თამაშების სია */
 .New-Releases-game-list {
     display: flex;
     flex-direction: column;
@@ -740,12 +1133,14 @@ body {
     margin-bottom: 50px;
 }
 
+/* ახალი გამოშვებების თამაშების მწკრივი */
 .New-Releases-game-row {
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 79px;
 }
 
+/* ახალი გამოშვებების ცალკეული თამაში */
 .New-Releases-game {
     display: flex;
     flex-direction: column;
@@ -754,6 +1149,7 @@ body {
     overflow: hidden;
 }
 
+/* ახალი გამოშვებების თამაშის სურათი */
 .New-Releases-game img {
     width: 100%;
     height: 100%;
@@ -761,6 +1157,8 @@ body {
     object-position: center;
     border-radius: 20px;
 }
+
+/* ახალი გამოშვებების თამაშის ინფორმაცია */
 .New-Releases-game-info {
     display: flex;
     align-items: center;
@@ -768,16 +1166,19 @@ body {
     padding: 30px 30px 0px 10px;
 }
 
+/* ახალი გამოშვებების თამაშის სახელი */
 .New-Releases-game-name {
     font-size: 25px;
 }
 
+/* ახალი გამოშვებების თამაშის ფასი */
 .New-Releases-game-price {
     font-size: 23px;
  }
 
 /*=====================================section 2=====================================*/
 
+/* თამაშების ჟანრების სათაური */
 .game-genres-header {
     display: flex;
     justify-content: space-between;
@@ -785,17 +1186,19 @@ body {
     margin: 0px 50px 50px 50px;
 }
 
+/* თამაშების ჟანრების სექცია */
 .game-genres {
     display: flex;
     flex-direction: column;
     margin-top: 100px;
 }
 
+/* თამაშების ჟანრების სათაური */
 .game-genres-title{
     margin: 0px 0px 50px 50px;
-
 }
 
+/* თამაშების ჟანრების სია */
 .game-genres-list {
     display: flex;
     justify-content: center;
@@ -804,6 +1207,7 @@ body {
     margin: 0 auto;
 }
 
+/* თამაშების ცალკეული ჟანრი */
 .game-genre {
     position: relative;
     width: 180px;
@@ -818,6 +1222,7 @@ body {
     transition: filter 0.2s, box-shadow 0.2s;
 }
 
+/* თამაშების ჟანრის სურათი */
 .game-genre img {
     width: 100%;
     height: 100%;
@@ -827,6 +1232,7 @@ body {
     transition: filter 0.2s;
 }
 
+/* თამაშების ჟანრის სათაური */
 .genre-title {
     position: absolute;
     left: 0; right: 0; top: 50%;
@@ -840,26 +1246,30 @@ body {
     font-weight: 700;
 }
 
+/* თამაშების ჟანრის ჰოვერ ეფექტი */
 .game-genre:hover img {
     filter: brightness(0.75);
 }
+
 .game-genre:hover {
     box-shadow: 0 4px 24px rgba(0,0,0,0.18);
 }
 
 /*=====================================section 3=====================================*/
 
+/* პოპულარული თამაშების სექცია */
 .popular-games {
     margin-top: 120px;
 }
 
-
+/* პოპულარული თამაშების სათაური */
 .popular-games-header {
     display: flex;
     justify-content: space-between;
     margin: 0px 50px 50px 50px;
 }
 
+/* პოპულარული თამაშების სია */
 .popular-game-list {
     display: flex;
     flex-direction: column;
@@ -868,12 +1278,14 @@ body {
     margin-bottom: 50px;
 }
 
+/* პოპულარული თამაშების მწკრივი */
 .popular-game-row {
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 79px;
 }
 
+/* პოპულარული ცალკეული თამაში */
 .popular-game {
     display: flex;
     flex-direction: column;
@@ -882,6 +1294,7 @@ body {
     overflow: hidden;
 }
 
+/* პოპულარული თამაშის სურათი */
 .popular-game img {
     width: 100%;
     height: 100%;
@@ -890,6 +1303,7 @@ body {
     border-radius: 20px;
 }
 
+/* პოპულარული თამაშის ინფორმაცია */
 .popular-game-info {
     display: flex;
     align-items: center;
@@ -897,31 +1311,40 @@ body {
     padding: 30px 30px 0px 10px;
 }
 
+/* პოპულარული თამაშის სახელი */
 .popular-game-name {
     font-size: 25px;
 }
 
+/* პოპულარული თამაშის ფასი */
 .popular-game-price {
     font-size: 23px;
 }
+
 /*=====================================section 4=====================================*/
 
+/* ბესტსელერ თამაშების სექცია */
 .bestseller-games {
     margin: 0px 0px 120px 0px;
 }
 
+/* ბესტსელერ თამაშების სათაური */
 .bestseller-games-header{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0px 50px 50px 50px;
 }
+
+/* პოპულარული თამაშების სათაური */
 .popular-games-header{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin : 0px 50px 0px 50px;
 }   
+
+/* ბესტსელერ თამაშების wrapper */
 .bestseller-games-wraper {
     position: relative;
     height: 450px;
@@ -932,6 +1355,7 @@ body {
     overflow: hidden;
 }
 
+/* ბესტსელერ თამაშების კონტეინერი */
 .bestseller-games-container {
     display: flex;
     gap: 30px;
@@ -942,6 +1366,7 @@ body {
     z-index: 1;
 }
 
+/* ბესტსელერ თამაშების ისრის ღილაკი */
 .bestseller-games-arrow {
     background: #181818;
     border: none;
@@ -964,25 +1389,30 @@ body {
     user-select: none;
 }
 
+/* ბესტსელერ თამაშების მარცხენა ისრის ღილაკი */
 .bestseller-games-arrow.left {
     left: 10px;
 }
 
+/* ბესტსელერ თამაშების მარჯვენა ისრის ღილაკი */
 .bestseller-games-arrow.right {
     right: 10px;
 }
 
+/* ბესტსელერ თამაშების ისრის ღილაკის ჰოვერ ეფექტი */
 .bestseller-games-arrow:hover {
     background: #0090ff;
     color: #fff;
     transform: translateY(-50%) scale(1.12);
 }
 
+/* ბესტსელერ თამაშების ისრის ღილაკის აქტივი მდგომარეობა */
 .bestseller-games-arrow:active {
     background: #0070cc;
     transform: translateY(-50%) scale(1.08);
 }
 
+/* ბესტსელერ ცალკეული თამაში */
 .bestseller-game{
     width: 270px;
     height: 400px;
@@ -999,13 +1429,14 @@ body {
     flex-direction: column;
 }
 
+/* ბესტსელერ თამაშის ჰოვერ ეფექტი */
 .bestseller-game:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     filter: brightness(1.20)
-    
 }
 
+/* ბესტსელერ თამაშის სურათი */
 .bestseller-game img {
     width: 100%;
     height: 100%;
@@ -1013,6 +1444,7 @@ body {
     pointer-events: none;
 }
 
+/* ბესტსელერ თამაშის სახელი */
 .bestseller-game-name {
     position: absolute;
     bottom: 0;
@@ -1028,21 +1460,20 @@ body {
     text-shadow: 0 1px 3px rgba(0,0,0,0);
 }
 
+/* ბესტსელერ თამაშის აქტივი მდგომარეობა */
 .bestseller-game:active{
     filter: brightness(0.6);
     transition: filter 0.05s
 }
 
-
-
 /*=====================================section 5=====================================*/
 
-
+/* თამაშების შეთავაზებების სექცია */
 .game-deals {
     margin: 120px 0px 120px 0px;
 }
 
-
+/* თამაშების შეთავაზებების სათაური */
 .game-deals-header {
     display: flex;
     justify-content: space-between;
@@ -1050,18 +1481,20 @@ body {
     margin: 0px 50px 50px 50px;
 }
 
+/* თამაშების შეთავაზებების კონტეინერი */
 .game-deals-conteiner {
     display: flex;
     flex-direction: column;
-    ;
 }
 
+/* თამაშების შეთავაზებების მწკრივი */
 .game-deals-row {
     display: flex;
     justify-content: space-evenly;
     margin: 0px 50px 70px 50px;
 }
 
+/* თამაშების ცალკეული შეთავაზება */
 .game-deal {
     width: 230px;
     height: 450px;
@@ -1072,6 +1505,7 @@ body {
     flex-direction: column;
 }
 
+/* თამაშების შეთავაზების სურათი */
 .game-deal img {
     border-radius: 15px;
     width: 100%;
@@ -1080,6 +1514,7 @@ body {
     pointer-events: none;
 }
 
+/* თამაშების შეთავაზების ინფორმაცია */
 .game-deal-info{
     display: flex;
     flex-direction: column;
@@ -1089,12 +1524,13 @@ body {
     padding-right: 10px;
 }
 
+/* თამაშების შეთავაზების სახელი */
 .game-deal-name {
     padding-left: 5px;
     margin-top: 10px;
 }
 
-
+/* თამაშების შეთავაზების ფასის კონტეინერი */
 .game-deal-price {
     display: flex;
     align-items: center;
@@ -1103,6 +1539,7 @@ body {
     margin-bottom: 5px;
 }
 
+/* თამაშების შეთავაზების წინა ფასი */
 .game-deal-previous-price {
     position: relative;
     display: inline-block;
@@ -1110,6 +1547,7 @@ body {
     font-size: 17px;
 }
 
+/* თამაშების შეთავაზების წინა ფასის გადახაზვა */
 .game-deal-previous-price::after {
     content: "";
     position: absolute;
@@ -1119,9 +1557,9 @@ body {
     height: 2px;
     background: #a91010;
     transform: rotate(-15deg);
-
 }
 
+/* თამაშების შეთავაზების ფასდაკლების ბეჯი */
 .game-deal-discount {
     display: flex;
     align-items: center;
@@ -1134,15 +1572,16 @@ body {
     border-radius: 20px;
     font-weight: 600;
     font-size: 20px;
-    
 }
 
 /*=====================================section 6=====================================*/
 
-
+/* წინასწარი შეკვეთების სექცია */
 .pre-orders {
     margin: 0px 0px 120px 0px;
 }
+
+/* წინასწარი შეკვეთების სათაური */
 .pre-orders-header {
     display: flex;
     justify-content: space-between;
@@ -1150,6 +1589,7 @@ body {
     margin: 0px 50px 50px 50px;
 }
 
+/* წინასწარი შეკვეთების wrapper */
 .pre-orders-wraper {
     display: flex;
     gap: 20px;
@@ -1159,6 +1599,7 @@ body {
     align-items: stretch;
 }
 
+/* წინასწარი შეკვეთების მარცხენა და მარჯვენა კონტეინერები */
 .pre-orders-conteiner-left, .pre-orders-conteiner-right {
     display: flex;
     flex-direction: column;
@@ -1167,11 +1608,13 @@ body {
     height: 700px;
 }
 
+/* წინასწარი შეკვეთების მარცხენა და მარჯვენა თამაშები */
 .pre-orders-game-left, .pre-orders-game-right {
     height: 100%;
     min-height: unset;
 }
 
+/* წინასწარი შეკვეთების თამაშის სტილები */
 .pre-orders-game-left, .pre-orders-game-right {
     position: relative;
     background-size: cover;
@@ -1185,11 +1628,13 @@ body {
     transition: transform 0.18s, box-shadow 0.18s;
 }
 
+/* წინასწარი შეკვეთების თამაშის ჰოვერ ეფექტი */
 .pre-orders-game-left:hover, .pre-orders-game-right:hover {
     transform: scale(1.03);
     box-shadow: 0 8px 32px rgba(0,0,0,0.35);
 }
 
+/* წინასწარი შეკვეთების თამაშის overlay */
 .pre-orders-overlay {
     position: absolute;
     inset: 0;
@@ -1197,6 +1642,7 @@ body {
     z-index: 1;
 }
 
+/* წინასწარი შეკვეთების თამაშის ინფორმაცია */
 .pre-orders-game-info {
     position: relative;
     z-index: 2;
@@ -1207,6 +1653,7 @@ body {
     align-items: flex-start;
 }
 
+/* წინასწარი შეკვეთების თამაშის სახელი */
 .pre-orders-game-name {
     font-size: 1.2rem;
     font-weight: 700;
@@ -1214,6 +1661,7 @@ body {
     text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
+/* წინასწარი შეკვეთების ღილაკი */
 .pre-orders-btn {
     background: rgba(0,0,0,0.7);
     color: #fff;
@@ -1226,20 +1674,25 @@ body {
     transition: background 0.14s;
     box-shadow: 0 2px 8px rgba(0,0,0,0.18);
 }
+
+/* წინასწარი შეკვეთების ღილაკის ჰოვერ ეფექტი */
 .pre-orders-btn:hover {
     background: #0090ff;
 }
 
+/* წინასწარი შეკვეთების ღილაკის აქტივი მდგომარეობა */
 .pre-orders-btn:active {
     background: #00285c;
 }
 
 /*=====================================section 7=====================================*/
 
+/* თამაშების მიმოხილვების სექცია */
 .game-reviews {
     margin-bottom: 120px;
 }
 
+/* თამაშების მიმოხილვების სათაური */
 .game-reviews-header {
     display: flex;
     justify-content: space-between;
@@ -1247,6 +1700,7 @@ body {
     margin: 0px 50px 50px 50px;
 }
 
+/* თამაშების მიმოხილვების სია */
 .game-reviews-list {
     display: flex;
     justify-content: space-between;
@@ -1254,6 +1708,7 @@ body {
     margin: 0px 80px 0px 80px;
 }
 
+/* თამაშების ცალკეული მიმოხილვა */
 .game-review {
     width: 264px;
     height: 560px;
@@ -1262,39 +1717,46 @@ body {
     object-fit:cover;
 }
 
+/* თამაშების მიმოხილვის ინფორმაცია */
 .game-review-info {
     display: flex;
     flex-direction: column;
     margin: 40px 10px 10px 10px;
 }
 
+/* თამაშების მიმოხილვის ტექსტი */
 .game-review-text {
     margin-top: 20px;
     text-align: center;
 }
 
+/* თამაშების მიმოხილვის სახელი და რეიტინგის კონტეინერი */
 .review-game-name-rating {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* თამაშების მიმოხილვის რეიტინგი */
 .game-review-rating {
     display: flex;
     align-items: center;
 }
 
+/* თამაშების მიმოხილვის რეიტინგის ვარსკვლავი */
 .game-review-rating-star { 
     scale: 1.5;
     margin-right: 7px;
 }
 
+/* თამაშების მიმოხილვის რეიტინგის ქულა */
 .game-review-rating-score {
     font-size: 25px;
 }
 
 /*=====================================footer=====================================*/
 
+/* Footer სექცია */
 .footer {
     display: flex;
     flex-direction: column;
@@ -1306,6 +1768,7 @@ body {
     color: #ffffff;
 }
 
+/* Footer კონტეინერი */
 .footer-container {
     display: flex;
     justify-content: space-between;
@@ -1315,17 +1778,20 @@ body {
     font-size: 25px;
 }
 
+/* Footer ლოგო */
 .footer-logo {
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
+/* Footer ლინკების კონტეინერი */
 .footer-links-container{
     display: flex;
     align-items: center;
 }
 
+/* Footer ლინკები */
 .footer-links{
     margin: 50px 0px 0px 50px;
     display: flex;
@@ -1334,6 +1800,7 @@ body {
     gap: 8px;
 }
 
+/* Footer სოციალური ქსელების წრე */
 .footer-socials-circle {
     display: flex;
     align-items: center;
@@ -1343,11 +1810,15 @@ body {
     width: 40px;
     height: 40px;
 }
+
+/* Footer სოციალური ქსელების ლინკები */
 .footer-socials-links {
     display: flex;
     align-items: space-between;
     margin: 50px 50px 10px 0px;
 }
+
+/* Footer სოციალური ქსელების აიქონები */
 .footer-socials {
     width: 20px;
     height: 20px;  
@@ -1355,6 +1826,7 @@ body {
 
 /* form validation */
 
+/* ფორმის კონტეინერი */
 .form-container{
   display: none;
   background: #000000;
@@ -1370,32 +1842,38 @@ body {
   transform: translate(-50%, -50%);
 }
 
+/* ფორმის სათაური */
 .form-header{
   background: #000000;
   border-bottom: 1px solid #000000;
   padding: 20px 40px;
 }
 
+/* ფორმის სათაურის ტექსტი */
 .form-header h3{
   margin: 0;
   font-size: 40px;
 }
 
+/* ფორმის შიგთავსი */
 .form{
   padding: 30px 20px;
 }
 
+/* ფორმის კონტროლის ელემენტი */
 .form-control{
   margin-bottom: 10px;
   padding-bottom: 20px;
   position: relative;
 }
 
+/* ფორმის კონტროლის ლეიბლი */
 .form-control label{
   display: inline-block;
   margin-bottom: 5px;
 }
 
+/* ფორმის კონტროლის input ველი */
 .form-control input{
   border: 2px solid #f0f0f0;
   background: #ffffff;
@@ -1407,14 +1885,17 @@ body {
   width: 100%;
 }
 
+/* ფორმის კონტროლის წარმატებული მდგომარეობა */
 .form-control.success input{
   border-color: #2ecc71;
 }
 
+/* ფორმის კონტროლის შეცდომის მდგომარეობა */
 .form-control.error input{
   border-color: #e74c3c;
 }
 
+/* ფორმის კონტროლის აიქონი */
 .form-control i{
   visibility: hidden;
   position: absolute;
@@ -1422,27 +1903,19 @@ body {
   right: 10px;
 }
 
-.form-control i.fas.fa-eye {
+/* ფორმის კონტროლის თვალის აიქონი */
+.form-control i.fa-eye {
   visibility: visible;
   cursor: pointer;
-  color: #666;
-  font-size: 16px;
-  transition: color 0.3s;
 }
 
-.form-control i.fas.fa-eye-slash {
+/* ფორმის კონტროლის დამალული თვალის აიქონი */
+.form-control i.fa-eye-slash {
   visibility: hidden;
   cursor: pointer;
-  color: #666;
-  font-size: 16px;
-  transition: color 0.3s;
 }
 
-.form-control i.fas.fa-eye:hover,
-.form-control i.fas.fa-eye-slash:hover {
-  color: #333;
-}
-
+/* ფორმის კონტროლის წარმატებული აიქონი */
 .form-control.success i.fa-check-circle {
   visibility: visible;
   color: #2ecc71;
@@ -1450,6 +1923,7 @@ body {
   right: 30px;
 }
 
+/* ფორმის კონტროლის შეცდომის აიქონი */
 .form-control.error i.fa-exclamation-circle{
   visibility: visible;
   color: #e74c3c;
@@ -1457,6 +1931,7 @@ body {
   right: 30px;
 }
 
+/* ფორმის კონტროლის შეტყობინება */
 .form-control small{
   visibility: hidden;
   position: absolute;
@@ -1464,11 +1939,13 @@ body {
   left: 0;
 }
 
+/* ფორმის კონტროლის შეცდომის შეტყობინება */
 .form-control.error small{
   visibility: visible;
   color: #e74c3c;
 }
 
+/* ფორმის ღილაკი */
 .form button{
   background: hsl(261, 100%, 30%);
   border: 2px solid hsl(261, 100%, 30%);
@@ -1480,10 +1957,6 @@ body {
   font-size: 16px;
   font-family: inherit;
 } 
-
-
-
-
 
 /* თამაშის სურათებზე ჰოვერი და აქტივი */
 .main-games-image img,
@@ -1497,6 +1970,7 @@ body {
     cursor: pointer;
 }
 
+/* თამაშის სურათების ჰოვერ ეფექტი */
 .main-games-image img:hover,
 .New-Releases-game img:hover,
 .game-genre img:hover,
@@ -1507,6 +1981,7 @@ body {
     filter: brightness(1.20);
 }
 
+/* თამაშის სურათების აქტივი მდგომარეობა */
 .main-games-image img:active,
 .New-Releases-game img:active,
 .game-genre img:active,
@@ -1525,6 +2000,7 @@ body {
     cursor: pointer;
 }
 
+/* pre-orders სექციის ბლოკების ჰოვერ ეფექტი */
 .pre-orders-game-left:hover,
 .pre-orders-game-right:hover {
     filter: brightness(1.18);
@@ -1536,35 +2012,39 @@ body {
     transition: filter 0.05s;
 } */
 
-
-
 /* font designs */
 
+/* მთავარი სათაურების სტილები */
 h2 {
     font-size: 40px;
     font-weight: 700;
 }
 
+/* თამაშების შეთავაზების სახელის სტილები */
 .game-deal-name{
     font-size: 20px;
     font-weight: 500;
 }
 
+/* თამაშების შეთავაზების საბოლოო ფასის სტილები */
 .game-deal-final-price {
     font-size: 25px;
     font-weight: 600;
 }
 
+/* თამაშების მიმოხილვის სახელის სტილები */
 .game-review-name {
     font-size: 26px;
     font-weight: 500;
 }
 
+/* თამაშების მიმოხილვის ტექსტის სტილები */
 .game-review-text {
     font-size: 17px;
     font-weight: 500;
 }
 
+/* სურათების user-select გამორთვა */
 img {
     user-select: none;
     -webkit-user-select: none;  /* Safari */
@@ -1574,7 +2054,7 @@ img {
     pointer-events: auto;       /* keep them clickable if needed */
   }
 
-
+/* მოდალის blur ეფექტი */
 .modal-blur {
   display: none;
   position: fixed;
@@ -1584,29 +2064,26 @@ img {
   z-index: 100;
   transition: opacity 0.3s;
 }
+
+/* მოდალის blur ეფექტის აქტივი მდგომარეობა */
 .modal-blur.active {
   display: block;
   opacity: 1;
 }
 
-
-
-
-
-
-
 /* 600px, 900px, 1200px, and 1800px */
 /* 1024px;768px;480px;320px */
+
+/* დიდი ეკრანების მედია ქვერი */
 @media only screen and (max-width: 1800px) {
 }
 
-
+/* საშუალო ეკრანების მედია ქვერი */
 @media only screen and (max-width: 1400px) {
     .nav-logo-name,
     .install-btn{
         display: none !important;
     }
-
 }
 
 /* @media only screen and (max-width: 1200px) {
@@ -1616,13 +2093,12 @@ img {
     }
 } */
 
-
+/* მცირე ეკრანების მედია ქვერი */
 @media only screen and (max-width: 480px) {
-
 }
 
+/* ძალიან მცირე ეკრანების მედია ქვერი */
 @media only screen and (max-width: 320px) {
-
 }
 
 

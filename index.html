@@ -7,7 +7,6 @@
     <title>OASIS - Game Store</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://unpkg.com/scrollreveal"></script> 
 </head>
 <body>
@@ -23,6 +22,7 @@
                         <i><img class="oasis" src="img/OASIS.svg" alt="oasis name"></i>
                     </a>
                 </div>
+                
                 <div class="nav_toggle show-icon" id="nav-toggle">
                     <img class="nav-burger" src="img/icons8-menu-96.png" alt="">
                     <img class="nav-close" src="img/icons8-x-96.png" alt="">
@@ -120,7 +120,9 @@
                                     <a class="dropdown-link" href="#">My games</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-link" href="#">Wishlist</a>
+                                    <a class="dropdown-link" href="#" id="wishlist-link">Wishlist
+                                        <span class="wishlist-indicator" id="wishlist-count">0</span>
+                                    </a>
                                 </li>
                                 <li>
                                     <div class="dropdown-link">
@@ -149,7 +151,7 @@
                 <p class="main-games-price" id="main-game-price"></p>
                 <div class="main-games-buttons">
                     <button class="buy-now">buy now</button>
-                    <button class="wishlist">wishlist</button>
+                    <button class="wishlist" id="wishlist">add to wishlist</button>
                 </div>
             </div>
             <div class="main-games-images-container">
@@ -725,8 +727,8 @@
             <input type="password" placeholder="Your password" id="password">
             <i class="fas fa-check-circle"></i>
             <i class="fas fa-exclamation-circle"></i>
-            <i class="fas fa-eye" id="show" onclick="togglePassword()"></i>
-            <i class="fas fa-eye-slash" id="hide" onclick="togglePassword()"></i>
+            <i class="far fa-eye" id="show" onclick="togglePassword()"></i>
+            <i class="far fa-eye-slash" id="hide" onclick="togglePassword()"></i>
             <small>Error message</small>
           </div>
           <div class="form-control">
@@ -734,8 +736,8 @@
             <input type="password" placeholder="Your password again" id="password2">
             <i class="fas fa-check-circle"></i>
             <i class="fas fa-exclamation-circle"></i>
-            <i class="fas fa-eye" id="show2" onclick="toggleConfirm()"></i>
-            <i class="fas fa-eye-slash" id="hide2" onclick="toggleConfirm()"></i>
+            <i class="far fa-eye" id="show2" onclick="toggleConfirm()"></i>
+            <i class="far fa-eye-slash" id="hide2" onclick="toggleConfirm()"></i>
             <small>Error message</small>
           </div>
           
