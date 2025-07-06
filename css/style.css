@@ -1366,8 +1366,8 @@ body {
 /* თამაშების ცალკეული შეთავაზება */
 .game-deal {
     width: 100%;
-    max-width: 250px;
-    height: 400px;
+    max-width: 400px;
+    height: 500px;
     border-radius: 15px;
     background-color: #0b003cfe;
     color: #ffffff;
@@ -1376,9 +1376,22 @@ body {
     flex-direction: column;
     margin-left: 1vw;
     margin-right: 1vw;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* თამაშების შეთავაზების hover ეფექტი */
+.game-deal:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+    background-color: #0d0048fe;
+}
 
+.game-deal:active {
+    transform: translateY(-8px) scale(1);
+    background-color: #00000027;
+}
 
 /* თამაშების შეთავაზების სურათი */
 .game-deal img {
@@ -1389,14 +1402,23 @@ body {
     pointer-events: none;
 }
 
+
+
+
 /* თამაშების შეთავაზების ინფორმაცია */
 .game-deal-info{
     display: flex;
     flex-direction: column;
-    height: 100px;
+    height: 150px;
     justify-content: space-between;
     margin: 5px 5px 5px 5px;
     padding-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* თამაშების შეთავაზების ინფორმაციის hover ეფექტი */
+.game-deal:hover .game-deal-info {
+    transform: translateY(-2px);
 }
 
 /* თამაშების შეთავაზების სახელი */
@@ -1420,6 +1442,7 @@ body {
     display: inline-block;
     color: #ff0000;
     font-size: 17px;
+    margin-left: 4vw;
 }
 
 /* თამაშების შეთავაზების წინა ფასის გადახაზვა */
@@ -2179,26 +2202,31 @@ img {
     }
 
     .game-deal-name {
-        font-size: 13px;
+        font-size: 20px;
     }
     
     /* თამაშების შეთავაზების ფასის კონტეინერი */
     .game-deal-price {
-        font-size: 13px;
+        font-size: 20px;
     }
     
     /* თამაშების შეთავაზების წინა ფასი */
     .game-deal-previous-price {
-        font-size: 13px;
+        font-size: 20px;
+        margin-left: 20vw;
     }
     
     /* თამაშების შეთავაზების ფასდაკლების ბეჯი */
     .game-deal-discount {
-        font-size: 13px;
+        font-size: 20px;
     }
 
     .game-deal-final-price {
-        font-size: 17px;
+        font-size: 25px;
+    }
+
+    .game-deal-info {
+        height: 100px;
     }
 
 
