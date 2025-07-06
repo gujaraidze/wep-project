@@ -1351,6 +1351,7 @@ body {
 
 .game-deal-flex-wrap{
     display: flex;
+    justify-content: center;
 
 }
 
