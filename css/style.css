@@ -991,7 +991,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 500px;
-    height: 300px;
+    height: 350px;
     overflow: hidden;
     margin-left: 1vw;
     margin-right: 1vw;
@@ -1000,7 +1000,7 @@ body {
 /* ახალი გამოშვებების თამაშის სურათი */
 .New-Releases-game img {
     width: 100%;
-    height: 100%;
+    height: 75%;
     object-fit: cover;
     object-position: center;
     border-radius: 20px;
@@ -1012,6 +1012,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 1vw  1vw 0  1vw;
+    height: 35%;
 }
 
 /* ახალი გამოშვებების თამაშის სახელი */
@@ -1149,7 +1150,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 500px;
-    height: 300px;
+    height: 350px;
     overflow: hidden;
     margin-left: 1vw;
     margin-right: 1vw;
@@ -1158,7 +1159,7 @@ body {
 /* პოპულარული თამაშის სურათი */
 .popular-game img {
     width: 100%;
-    height: 100%;
+    height: 75%;
     object-fit: cover;
     object-position: center;
     border-radius: 20px;
@@ -1170,6 +1171,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 1vw  1vw 0  1vw;
+    height: 35%;
 }
 
 /* პოპულარული თამაშის სახელი */
