@@ -71,7 +71,7 @@ body {
     background: hsl(261, 100%, 30%);
     border: 0px;;
     color: #ffffff;
-    width: 123px;
+    min-width: 123px;
     height: 44px;
     border-radius: 15px;
     padding: 6px 18px;
@@ -1114,7 +1114,7 @@ body {
 
 /* ახალი გამოშვებების სექცია */
 .New-Releases-games {
-    margin-top: 120px;
+    margin-top: 120px;    
 }
 
 /* ახალი გამოშვებების სათაური */
@@ -1129,8 +1129,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
 }
 
 /* ახალი გამოშვებების თამაშების მწკრივი */
@@ -1145,8 +1147,10 @@ body {
     display: flex;
     flex-direction: column;
     width: 500px;
-    height: 300px;
+    height: calc(100%-200px);
     overflow: hidden;
+    margin-left: 1vw;
+    margin-right: 1vw;
 }
 
 /* ახალი გამოშვებების თამაშის სურათი */
@@ -1163,17 +1167,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px 30px 0px 10px;
+    padding: 1vw  1vw 0  1vw;
 }
 
 /* ახალი გამოშვებების თამაშის სახელი */
 .New-Releases-game-name {
-    font-size: 25px;
+    font-size: 23px;
+    
 }
 
 /* ახალი გამოშვებების თამაშის ფასი */
 .New-Releases-game-price {
     font-size: 23px;
+    
  }
 
 /*=====================================section 2=====================================*/
@@ -1191,7 +1197,10 @@ body {
     display: flex;
     flex-direction: column;
     margin-top: 100px;
+    margin-left: 3vw;
+    margin-right: 3vw;
 }
+
 
 /* თამაშების ჟანრების სათაური */
 .game-genres-title{
@@ -1203,6 +1212,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     gap: 36px;
     margin: 0 auto;
 }
@@ -1210,8 +1220,10 @@ body {
 /* თამაშების ცალკეული ჟანრი */
 .game-genre {
     position: relative;
-    width: 180px;
-    height: 180px;
+    max-width: 180px;
+    max-height: 180px;
+    width: 30vw;
+    height: 30vw;
     border-radius: 20px;
     overflow: hidden;
     background: #222;
@@ -1274,8 +1286,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
 }
 
 /* პოპულარული თამაშების მწკრივი */
@@ -1289,9 +1303,11 @@ body {
 .popular-game {
     display: flex;
     flex-direction: column;
-    width: 500px;
-    height: 300px;
+    width: 450px;
+    height: calc(100%-200px);
     overflow: hidden;
+    margin-left: 1vw;
+    margin-right: 1vw;
 }
 
 /* პოპულარული თამაშის სურათი */
@@ -1308,7 +1324,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px 30px 0px 10px;
+    padding: 1vw  1vw 0  1vw;
 }
 
 /* პოპულარული თამაშის სახელი */
@@ -1321,6 +1337,12 @@ body {
     font-size: 23px;
 }
 
+.popular-games-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin : 0px 50px 0px 50px;
+}   
 /*=====================================section 4=====================================*/
 
 /* ბესტსელერ თამაშების სექცია */
@@ -1337,12 +1359,7 @@ body {
 }
 
 /* პოპულარული თამაშების სათაური */
-.popular-games-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin : 0px 50px 0px 50px;
-}   
+
 
 /* ბესტსელერ თამაშების wrapper */
 .bestseller-games-wraper {
@@ -2075,14 +2092,30 @@ img {
 /* 1024px;768px;480px;320px */
 
 /* დიდი ეკრანების მედია ქვერი */
-@media only screen and (max-width: 1800px) {
+@media only screen and (max-width: 1700px) {
+    
 }
 
 /* საშუალო ეკრანების მედია ქვერი */
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1400px) {
     .nav-logo-name{
         display: none !important;
     }
+
+    .New-Releases-game-name {
+        font-size: 20px;
+    }
+    .New-Releases-game-price {
+        font-size: 20px;
+    }
+
+    .popular-game-name {
+        font-size: 20px;
+    }
+    .popular-game-price {
+        font-size: 20px;
+    }
+
 }
 
 @media only screen and (max-width: 1200px) {
@@ -2100,10 +2133,82 @@ img {
     #support{
         display: block !important;
     }
+
+    .New-Releases-game-name {
+        font-size: 18px;
+    }
+    .New-Releases-game-price {
+        font-size: 18px;
+    }
+
+    .popular-game-name {
+        font-size: 18px;
+    }
+    .popular-game-price {
+        font-size: 18px;
+    }
+
 }
 
 /* მცირე ეკრანების მედია ქვერი */
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 600px) {
+    .New-Releases-game-row{
+        flex-direction: column;
+        margin-left: 5vw;
+        margin-right: 5vw;
+        margin-bottom: 0;
+    }
+    .New-Releases-game {
+        margin-bottom: 15vw;
+        width: 80vw;
+    }
+    .New-Releases-game-info {
+        margin-top: 4vw;
+    }
+    .New-Releases-games-title {
+        font-size: 30px;
+    }
+
+    .popular-game-row{
+        flex-direction: column;
+        margin-left: 5vw;
+        margin-right: 5vw;
+        margin-bottom: 0;
+    }
+    .popular-game {
+        margin-bottom: 15vw;
+        width: 80vw;
+    }
+    .populargame-info {
+        margin-top: 4vw;
+    }
+    .popular-games-title {
+        font-size: 30px;
+    }
+
+    .genre-title {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .New-Releases-games-title{
+        font-size: 30px;
+    }
+
+    .New-Releases-game-name {
+        font-size: 23px;
+    }
+    .New-Releases-game-price {
+        font-size: 23px;
+    }
+
+    .popular-game-name {
+        font-size: 23px;
+    }
+    .popular-game-price {
+        font-size: 23px;
+    }
+
 }
 
 /* ძალიან მცირე ეკრანების მედია ქვერი */
